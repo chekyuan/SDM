@@ -45,6 +45,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.btnMyTrips = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lstAllTour
@@ -192,11 +193,22 @@
             this.btnMyTrips.UseVisualStyleBackColor = true;
             this.btnMyTrips.Visible = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(490, 82);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 13;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // ViewAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 621);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnMyTrips);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.btnLogin);
@@ -236,6 +248,7 @@
         private System.Windows.Forms.ColumnHeader TourCost;
         private System.Windows.Forms.ColumnHeader TourDate;
         private System.Windows.Forms.ColumnHeader TourName;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
