@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4794f5be78a45e3884fa20149073c0c" Name="Diagram1">
+        <EntityTypeShape EntityType="breadpanModel.REVIEW" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="breadpanModel.TOUR" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="breadpanModel.TRANSACTION" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="breadpanModel.USER" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="breadpanModel.FK_REVIEW_TOUR" ManuallyRouted="false" />
+        <AssociationConnector Association="breadpanModel.FK_TRANSACTION_REVIEW" ManuallyRouted="false" />
+        <AssociationConnector Association="breadpanModel.FK_TOUR_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="breadpanModel.FK_TRANSACTION_TOUR" ManuallyRouted="false" />
+        <AssociationConnector Association="breadpanModel.FK_TRANSACTION_USER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

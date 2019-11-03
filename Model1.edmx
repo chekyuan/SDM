@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="breadpanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="REVIEW">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="TourID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RDescription" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Ratings" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TOUR">
+          <Key>
+            <PropertyRef Name="TourID" />
+          </Key>
+          <Property Name="TourID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="TourCost" Type="float" Nullable="false" />
+          <Property Name="TDescription" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TDate" Type="date" Nullable="false" />
+          <Property Name="TName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRANSACTION">
+          <Key>
+            <PropertyRef Name="TransID" />
+          </Key>
+          <Property Name="TransID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="ReviewID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="TourID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="TStatus" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserRole" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_REVIEW_TOUR">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
+          <End Role="REVIEW" Type="Self.REVIEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="REVIEW">
+              <PropertyRef Name="TourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TOUR_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TOUR">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_REVIEW">
+          <End Role="REVIEW" Type="Self.REVIEW" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REVIEW">
+              <PropertyRef Name="ReviewID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="ReviewID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_TOUR">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="TourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="breadpanModelStoreContainer">
+          <EntitySet Name="REVIEW" EntityType="Self.REVIEW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TOUR" EntityType="Self.TOUR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSACTION" EntityType="Self.TRANSACTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_REVIEW_TOUR" Association="Self.FK_REVIEW_TOUR">
+            <End Role="TOUR" EntitySet="TOUR" />
+            <End Role="REVIEW" EntitySet="REVIEW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TOUR_USER" Association="Self.FK_TOUR_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="TOUR" EntitySet="TOUR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_REVIEW" Association="Self.FK_TRANSACTION_REVIEW">
+            <End Role="REVIEW" EntitySet="REVIEW" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_TOUR" Association="Self.FK_TRANSACTION_TOUR">
+            <End Role="TOUR" EntitySet="TOUR" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_USER" Association="Self.FK_TRANSACTION_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="breadpanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="REVIEW">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TourID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ratings" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TOUR" Relationship="Self.FK_REVIEW_TOUR" FromRole="REVIEW" ToRole="TOUR" />
+          <NavigationProperty Name="TRANSACTIONs" Relationship="Self.FK_TRANSACTION_REVIEW" FromRole="REVIEW" ToRole="TRANSACTION" />
+        </EntityType>
+        <EntityType Name="TOUR">
+          <Key>
+            <PropertyRef Name="TourID" />
+          </Key>
+          <Property Name="TourID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TourCost" Type="Double" Nullable="false" />
+          <Property Name="TDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="REVIEWs" Relationship="Self.FK_REVIEW_TOUR" FromRole="TOUR" ToRole="REVIEW" />
+          <NavigationProperty Name="USER" Relationship="Self.FK_TOUR_USER" FromRole="TOUR" ToRole="USER" />
+          <NavigationProperty Name="TRANSACTIONs" Relationship="Self.FK_TRANSACTION_TOUR" FromRole="TOUR" ToRole="TRANSACTION" />
+        </EntityType>
+        <EntityType Name="TRANSACTION">
+          <Key>
+            <PropertyRef Name="TransID" />
+          </Key>
+          <Property Name="TransID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReviewID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TourID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="REVIEW" Relationship="Self.FK_TRANSACTION_REVIEW" FromRole="TRANSACTION" ToRole="REVIEW" />
+          <NavigationProperty Name="TOUR" Relationship="Self.FK_TRANSACTION_TOUR" FromRole="TRANSACTION" ToRole="TOUR" />
+          <NavigationProperty Name="USER" Relationship="Self.FK_TRANSACTION_USER" FromRole="TRANSACTION" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserRole" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TOURs" Relationship="Self.FK_TOUR_USER" FromRole="USER" ToRole="TOUR" />
+          <NavigationProperty Name="TRANSACTIONs" Relationship="Self.FK_TRANSACTION_USER" FromRole="USER" ToRole="TRANSACTION" />
+        </EntityType>
+        <Association Name="FK_REVIEW_TOUR">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
+          <End Role="REVIEW" Type="Self.REVIEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="REVIEW">
+              <PropertyRef Name="TourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_REVIEW">
+          <End Role="REVIEW" Type="Self.REVIEW" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REVIEW">
+              <PropertyRef Name="ReviewID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="ReviewID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TOUR_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TOUR">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_TOUR">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="TourID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="TourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="breadpanEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="REVIEWs" EntityType="Self.REVIEW" />
+          <EntitySet Name="TOURs" EntityType="Self.TOUR" />
+          <EntitySet Name="TRANSACTIONs" EntityType="Self.TRANSACTION" />
+          <EntitySet Name="USERs" EntityType="Self.USER" />
+          <AssociationSet Name="FK_REVIEW_TOUR" Association="Self.FK_REVIEW_TOUR">
+            <End Role="TOUR" EntitySet="TOURs" />
+            <End Role="REVIEW" EntitySet="REVIEWs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_REVIEW" Association="Self.FK_TRANSACTION_REVIEW">
+            <End Role="REVIEW" EntitySet="REVIEWs" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TOUR_USER" Association="Self.FK_TOUR_USER">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="TOUR" EntitySet="TOURs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_TOUR" Association="Self.FK_TRANSACTION_TOUR">
+            <End Role="TOUR" EntitySet="TOURs" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_USER" Association="Self.FK_TRANSACTION_USER">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTIONs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="breadpanModelStoreContainer" CdmEntityContainer="breadpanEntities">
+          <EntitySetMapping Name="REVIEWs">
+            <EntityTypeMapping TypeName="breadpanModel.REVIEW">
+              <MappingFragment StoreEntitySet="REVIEW">
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+                <ScalarProperty Name="TourID" ColumnName="TourID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="RDescription" ColumnName="RDescription" />
+                <ScalarProperty Name="Ratings" ColumnName="Ratings" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOURs">
+            <EntityTypeMapping TypeName="breadpanModel.TOUR">
+              <MappingFragment StoreEntitySet="TOUR">
+                <ScalarProperty Name="TourID" ColumnName="TourID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TourCost" ColumnName="TourCost" />
+                <ScalarProperty Name="TDescription" ColumnName="TDescription" />
+                <ScalarProperty Name="TDate" ColumnName="TDate" />
+                <ScalarProperty Name="TName" ColumnName="TName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSACTIONs">
+            <EntityTypeMapping TypeName="breadpanModel.TRANSACTION">
+              <MappingFragment StoreEntitySet="TRANSACTION">
+                <ScalarProperty Name="TransID" ColumnName="TransID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+                <ScalarProperty Name="TourID" ColumnName="TourID" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="TStatus" ColumnName="TStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERs">
+            <EntityTypeMapping TypeName="breadpanModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

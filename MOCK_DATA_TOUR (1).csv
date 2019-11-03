@@ -1,0 +1,14 @@
+TourID,UserID,TourCost,TDescription,TDate,Country,TourName
+G0000001,1,9.64,throughput,5/3/2019,China,multi-state
+G0000002,2,2.75,Switchable,10/9/2019,Argentina,function
+G0000003,3,4.15,Fundamental,12/1/2018,Germany,productivity
+G0000004,4,4.16,Re-engineered,10/2/2019,Thailand,Organized
+G0000005,5,8.81,transitional,9/21/2019,China,Total
+G0000006,6,1.91,De-engineered,4/17/2019,Argentina,intermediate
+G0000007,7,4.21,Advanced,1/13/2019,Dominican Republic,protocol
+G0000008,8,2.42,user-facing,12/6/2018,United States,website
+G0000009,9,5.5,Synergistic,6/8/2019,Brazil,User-friendly
+G0000010,10,2.58,Compatible,11/9/2018,Colombia,Networked
+G0000011,11,8.73,3rd generation,2/25/2019,France,motivating
+G0000012,12,0.33,Cross-group,10/29/2018,Russia,circuit
+G0000013,13,7.85,framework,2/20/2019,Indonesia,Multi-channelled
