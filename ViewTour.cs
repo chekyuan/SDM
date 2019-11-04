@@ -34,7 +34,6 @@ namespace breadpan
             string sqlRetrieveCountry = "SELECT TName, TCost,TDescription, TDuration " +
                                         "FROM TOUR " +
                                         "WHERE TourID = '" + sessionTourID + "'";
-            label6.Text = sessionTourID;
             SqlCommand cm = new SqlCommand(sqlRetrieveCountry, con);
             con.Open();
             SqlDataReader dr = cm.ExecuteReader();
@@ -44,10 +43,22 @@ namespace breadpan
                 lblTour.Text = dr["TName"].ToString();
                 txtDescription.Text = dr["TDescription"].ToString();
                 lblCost.Text = dr["TCost"].ToString();
-                lblDuration.Text = dr["TDuration"].ToString() + " Day(s)";
+                lblDuration.Text = dr["TDuration"].ToString() ;
             }
 
         }
-       
+
+        private void calFrom_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            int duration = int.Parse(lblDuration.Text);
+           string dateStart = calFrom.SelectionRange.Start.ToShortDateString();
+            DateTime startDate = calFrom.SelectionRange.Start;
+            DateTime endDate = startDate.AddDays(duration);
+            lblSDate.Visible = true; 
+            lblEDate.Visible = true;
+            lblSDate.Text = startDate.ToShortDateString();
+            lblEDate.Text = endDate.ToShortDateString();
+
+        }
     }
 }

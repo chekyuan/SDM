@@ -44,6 +44,11 @@
             this.lblCost = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblSDate = new System.Windows.Forms.Label();
+            this.lblEDate = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,6 +136,7 @@
             this.calFrom.Location = new System.Drawing.Point(613, 521);
             this.calFrom.Name = "calFrom";
             this.calFrom.TabIndex = 11;
+            this.calFrom.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calFrom_DateSelected);
             // 
             // label5
             // 
@@ -193,9 +199,9 @@
             this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDuration.Location = new System.Drawing.Point(164, 620);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(73, 25);
+            this.lblDuration.Size = new System.Drawing.Size(42, 25);
             this.lblDuration.TabIndex = 22;
-            this.lblDuration.Text = "*Days*";
+            this.lblDuration.Text = "*D*";
             // 
             // label9
             // 
@@ -207,11 +213,68 @@
             this.label9.TabIndex = 23;
             this.label9.Text = "Tour Duration :";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(854, 585);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 25);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "End Date :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(852, 531);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(110, 25);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Start Date :";
+            // 
+            // lblSDate
+            // 
+            this.lblSDate.AutoSize = true;
+            this.lblSDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSDate.Location = new System.Drawing.Point(962, 531);
+            this.lblSDate.Name = "lblSDate";
+            this.lblSDate.Size = new System.Drawing.Size(115, 25);
+            this.lblSDate.TabIndex = 26;
+            this.lblSDate.Text = "*Start Date*";
+            this.lblSDate.Visible = false;
+            // 
+            // lblEDate
+            // 
+            this.lblEDate.AutoSize = true;
+            this.lblEDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEDate.Location = new System.Drawing.Point(962, 585);
+            this.lblEDate.Name = "lblEDate";
+            this.lblEDate.Size = new System.Drawing.Size(109, 25);
+            this.lblEDate.TabIndex = 27;
+            this.lblEDate.Text = "*End Date*";
+            this.lblEDate.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(212, 620);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 25);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Day(s)";
+            // 
             // ViewTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 756);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblEDate);
+            this.Controls.Add(this.lblSDate);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.lblCost);
@@ -255,5 +318,10 @@
         private System.Windows.Forms.Label lblCost;
         private System.Windows.Forms.Label lblDuration;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblSDate;
+        private System.Windows.Forms.Label lblEDate;
+        private System.Windows.Forms.Label label11;
     }
 }
