@@ -36,10 +36,14 @@
             this.picBox = new System.Windows.Forms.PictureBox();
             this.cbPax = new System.Windows.Forms.ComboBox();
             this.calFrom = new System.Windows.Forms.MonthCalendar();
-            this.calTo = new System.Windows.Forms.MonthCalendar();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnBook = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblCost = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,11 +89,12 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.Enabled = false;
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(33, 174);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(511, 511);
+            this.txtDescription.Size = new System.Drawing.Size(511, 368);
             this.txtDescription.TabIndex = 8;
             // 
             // picBox
@@ -102,26 +107,30 @@
             // 
             // cbPax
             // 
-            this.cbPax.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPax.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.cbPax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPax.ForeColor = System.Drawing.SystemColors.MenuText;
             this.cbPax.FormattingEnabled = true;
+            this.cbPax.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
             this.cbPax.Location = new System.Drawing.Point(613, 448);
             this.cbPax.Name = "cbPax";
             this.cbPax.Size = new System.Drawing.Size(214, 24);
             this.cbPax.TabIndex = 10;
-            this.cbPax.Text = "Number of Person";
             // 
             // calFrom
             // 
             this.calFrom.Location = new System.Drawing.Point(613, 521);
             this.calFrom.Name = "calFrom";
             this.calFrom.TabIndex = 11;
-            // 
-            // calTo
-            // 
-            this.calTo.Location = new System.Drawing.Point(858, 523);
-            this.calTo.Name = "calTo";
-            this.calTo.TabIndex = 12;
             // 
             // label5
             // 
@@ -133,16 +142,6 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "From :";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(855, 497);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "To :";
-            // 
             // btnBook
             // 
             this.btnBook.Location = new System.Drawing.Point(1004, 701);
@@ -152,15 +151,75 @@
             this.btnBook.Text = "Book";
             this.btnBook.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(587, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "label6";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(29, 566);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(115, 25);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Per PAX : $";
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 23);
+            this.label8.TabIndex = 0;
+            // 
+            // lblCost
+            // 
+            this.lblCost.AutoSize = true;
+            this.lblCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCost.Location = new System.Drawing.Point(140, 566);
+            this.lblCost.Name = "lblCost";
+            this.lblCost.Size = new System.Drawing.Size(69, 25);
+            this.lblCost.TabIndex = 21;
+            this.lblCost.Text = "*Cost*";
+            // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuration.Location = new System.Drawing.Point(164, 620);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(73, 25);
+            this.lblDuration.TabIndex = 22;
+            this.lblDuration.Text = "*Days*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(27, 620);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(142, 25);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Tour Duration :";
+            // 
             // ViewTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 756);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblDuration);
+            this.Controls.Add(this.lblCost);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnBook);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.calTo);
             this.Controls.Add(this.calFrom);
             this.Controls.Add(this.cbPax);
             this.Controls.Add(this.picBox);
@@ -188,9 +247,13 @@
         private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.ComboBox cbPax;
         private System.Windows.Forms.MonthCalendar calFrom;
-        private System.Windows.Forms.MonthCalendar calTo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBook;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblCost;
+        private System.Windows.Forms.Label lblDuration;
+        private System.Windows.Forms.Label label9;
     }
 }

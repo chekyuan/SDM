@@ -31,8 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.calFrom = new System.Windows.Forms.MonthCalendar();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSignUp = new System.Windows.Forms.Button();
@@ -42,7 +40,6 @@
             this.TourID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TourName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TourCountry = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TourDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TourCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TourGuideName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -77,22 +74,6 @@
             this.label3.Size = new System.Drawing.Size(18, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "©";
-            // 
-            // calFrom
-            // 
-            this.calFrom.Location = new System.Drawing.Point(672, 185);
-            this.calFrom.Name = "calFrom";
-            this.calFrom.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(669, 159);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "From :";
             // 
             // btnSearch
             // 
@@ -147,7 +128,6 @@
             this.TourID,
             this.TourName,
             this.TourCountry,
-            this.TourDate,
             this.TourCost,
             this.TourGuideName});
             this.lstAllTour.FullRowSelect = true;
@@ -173,11 +153,6 @@
             // 
             this.TourCountry.Text = "Country";
             this.TourCountry.Width = 74;
-            // 
-            // TourDate
-            // 
-            this.TourDate.Text = "Tour Date";
-            this.TourDate.Width = 94;
             // 
             // TourCost
             // 
@@ -211,8 +186,6 @@
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.calFrom);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -228,8 +201,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MonthCalendar calFrom;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSignUp;
@@ -239,7 +210,6 @@
         private System.Windows.Forms.ColumnHeader TourID;
         private System.Windows.Forms.ColumnHeader TourName;
         private System.Windows.Forms.ColumnHeader TourCountry;
-        private System.Windows.Forms.ColumnHeader TourDate;
         private System.Windows.Forms.ColumnHeader TourCost;
         private System.Windows.Forms.ColumnHeader TourGuideName;
         private System.Windows.Forms.Button btnRefresh;
