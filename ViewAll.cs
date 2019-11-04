@@ -8,38 +8,102 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 namespace breadpan
 {
     public partial class ViewAll : Form
     {
-        public SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bruce\source\repos\SDM\breadpan.mdf;Integrated Security=True");
-      //  public SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\choke\source\repos\breadpan\breadpan.mdf;Integrated Security=True");
+        //Bruce's connection string
+        //public SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bruce\source\repos\SDM\breadpan.mdf;Integrated Security=True");
+        //Chek's connection string  
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\choke\source\repos\breadpan\breadpan.mdf;Integrated Security=True";
+
 
         public ViewAll()
         {
             InitializeComponent();
-          
         }
 
         private void ViewAll_Load(object sender, EventArgs e)
         {
-            SqlDataAdapter da = new SqlDataAdapter("SELECT TourID,TourCost,TDate,TName,FullName FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID", con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            string sqlListAllTour = "SELECT TourID,TourCost,TDate,TName,TCountry,FullName FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID";
+            PopulateDataList(sqlListAllTour);
+            FillCountryComboBox();
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
 
-            for(int i = 0; i<dt.Rows.Count;i++)
+            string searchDate = calFrom.SelectionRange.Start.ToString("MM/dd/yyyy");
+            string searchCountry = cbCountry.Text;
+           if (searchCountry == "")
             {
+                string sqlSearch = "SELECT TourID,TourCost,TDate,TName,TCountry,FullName " +
+                                "FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID WHERE TDate = \'" + searchDate + "\'";
+                PopulateDataList(sqlSearch);
+            }
+            else if (searchCountry != "" && searchDate == DateTime.Now.ToString("MM/dd/yyyy"))
+            {
+                string sqlSearch = "SELECT TourID,TourCost,TDate,TName,TCountry,FullName " +
+                                "FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID WHERE TOUR.TCountry = \'" + searchCountry + "\'";
+                PopulateDataList(sqlSearch);
+            }
+           else
+            {
+                string sqlSearch = "SELECT TourID,TourCost,TDate,TName,TCountry,FullName " +
+                                "FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID WHERE TOUR.TCountry = \'" + searchCountry + "\' AND TDate = \'" + searchDate+"\'";
+                PopulateDataList(sqlSearch);
+            }
+            
+            
+        }
+        public void PopulateDataList(string sqlRetrieveData)
+        {
+            lstAllTour.Items.Clear();
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlDataAdapter da = new SqlDataAdapter(sqlRetrieveData, con);
+            DataTable dt = new DataTable();
+            con.Open();
+            da.Fill(dt);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+            
                 DataRow dr = dt.Rows[i];
                 ListViewItem itm = new ListViewItem(dr["TourID"].ToString());
-                itm.SubItems.Add(dr["FullName"].ToString());
-                itm.SubItems.Add(dr["TourCost"].ToString());
-                itm.SubItems.Add(dr["TDate"].ToString());
                 itm.SubItems.Add(dr["TName"].ToString());
+                itm.SubItems.Add(dr["TCountry"].ToString());
+                itm.SubItems.Add(Convert.ToDateTime(dr["TDate"]).ToString("dd/MM/yyy"));
+               // itm.SubItems.Add(dr["TDate"].ToString());
+                itm.SubItems.Add(dr["TourCost"].ToString());
+                itm.SubItems.Add(dr["FullName"].ToString());
+   
                 lstAllTour.Items.Add(itm);
-
             }
+            con.Close();
+        }
+        public void FillCountryComboBox()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            string sqlRetrieveCountry = "SELECT DISTINCT TCountry FROM TOUR";
+            SqlCommand cm = new SqlCommand(sqlRetrieveCountry, con);
+            con.Open();
+            SqlDataReader dr = cm.ExecuteReader();
+            while(dr.Read())
+            {
+                cbCountry.Items.Add(dr["TCountry"]);
+            }
+            con.Close();
         }
 
- 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            string sqlListAllTour = "SELECT TourID,TourCost,TDate,TName,TCountry,FullName FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID";
+            PopulateDataList(sqlListAllTour);
+        }
+
+        private void lstAllTour_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("CLICKED");
+        }
     }
 }
