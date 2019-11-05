@@ -43,11 +43,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCardName = new System.Windows.Forms.TextBox();
-            this.tbCardNum = new System.Windows.Forms.TextBox();
+            this.txtCardNum = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbMonth = new System.Windows.Forms.ComboBox();
-            this.cbYear = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtCvv = new System.Windows.Forms.TextBox();
             this.btnPayment = new System.Windows.Forms.Button();
@@ -56,6 +54,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblTotalCost = new System.Windows.Forms.Label();
+            this.txtMonth = new System.Windows.Forms.TextBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -207,15 +209,15 @@
             this.txtCardName.Size = new System.Drawing.Size(275, 23);
             this.txtCardName.TabIndex = 23;
             // 
-            // tbCardNum
+            // txtCardNum
             // 
-            this.tbCardNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCardNum.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tbCardNum.Location = new System.Drawing.Point(680, 362);
-            this.tbCardNum.MaxLength = 16;
-            this.tbCardNum.Name = "tbCardNum";
-            this.tbCardNum.Size = new System.Drawing.Size(275, 23);
-            this.tbCardNum.TabIndex = 25;
+            this.txtCardNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCardNum.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtCardNum.Location = new System.Drawing.Point(680, 362);
+            this.txtCardNum.MaxLength = 16;
+            this.txtCardNum.Name = "txtCardNum";
+            this.txtCardNum.Size = new System.Drawing.Size(275, 23);
+            this.txtCardNum.TabIndex = 25;
             // 
             // label11
             // 
@@ -237,27 +239,11 @@
             this.label12.TabIndex = 26;
             this.label12.Text = "Expiry Date :";
             // 
-            // cbMonth
-            // 
-            this.cbMonth.FormattingEnabled = true;
-            this.cbMonth.Location = new System.Drawing.Point(680, 458);
-            this.cbMonth.Name = "cbMonth";
-            this.cbMonth.Size = new System.Drawing.Size(121, 21);
-            this.cbMonth.TabIndex = 27;
-            // 
-            // cbYear
-            // 
-            this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(834, 458);
-            this.cbYear.Name = "cbYear";
-            this.cbYear.Size = new System.Drawing.Size(121, 21);
-            this.cbYear.TabIndex = 28;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(677, 512);
+            this.label13.Location = new System.Drawing.Point(677, 534);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 17);
             this.label13.TabIndex = 29;
@@ -265,7 +251,7 @@
             // 
             // txtCvv
             // 
-            this.txtCvv.Location = new System.Drawing.Point(680, 532);
+            this.txtCvv.Location = new System.Drawing.Point(680, 554);
             this.txtCvv.Name = "txtCvv";
             this.txtCvv.Size = new System.Drawing.Size(100, 20);
             this.txtCvv.TabIndex = 30;
@@ -278,6 +264,7 @@
             this.btnPayment.TabIndex = 31;
             this.btnPayment.Text = "Make Payment";
             this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // label14
             // 
@@ -326,11 +313,55 @@
             this.lblTotalCost.TabIndex = 36;
             this.lblTotalCost.Text = "*Total $*";
             // 
+            // txtMonth
+            // 
+            this.txtMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMonth.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMonth.Location = new System.Drawing.Point(680, 487);
+            this.txtMonth.MaxLength = 16;
+            this.txtMonth.Name = "txtMonth";
+            this.txtMonth.Size = new System.Drawing.Size(96, 23);
+            this.txtMonth.TabIndex = 37;
+            // 
+            // txtYear
+            // 
+            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYear.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtYear.Location = new System.Drawing.Point(834, 487);
+            this.txtYear.MaxLength = 16;
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(96, 23);
+            this.txtYear.TabIndex = 38;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(677, 467);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(47, 17);
+            this.label17.TabIndex = 39;
+            this.label17.Text = "Month";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(833, 467);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(38, 17);
+            this.label18.TabIndex = 40;
+            this.label18.Text = "Year";
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 837);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.txtYear);
+            this.Controls.Add(this.txtMonth);
             this.Controls.Add(this.lblTotalCost);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label16);
@@ -339,10 +370,8 @@
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.txtCvv);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.cbYear);
-            this.Controls.Add(this.cbMonth);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.tbCardNum);
+            this.Controls.Add(this.txtCardNum);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtCardName);
             this.Controls.Add(this.label10);
@@ -384,11 +413,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCardName;
-        private System.Windows.Forms.TextBox tbCardNum;
+        private System.Windows.Forms.TextBox txtCardNum;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cbMonth;
-        private System.Windows.Forms.ComboBox cbYear;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCvv;
         private System.Windows.Forms.Button btnPayment;
@@ -397,5 +424,9 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTotalCost;
+        private System.Windows.Forms.TextBox txtMonth;
+        private System.Windows.Forms.TextBox txtYear;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }
