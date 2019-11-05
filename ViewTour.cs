@@ -46,6 +46,7 @@ namespace breadpan
             }
             con.Close();
 
+
         }
 
         private void calFrom_DateSelected(object sender, DateRangeEventArgs e)
@@ -58,11 +59,15 @@ namespace breadpan
             lblEDate.Visible = true;
             lblSDate.Text = startDate.ToShortDateString();
             lblEDate.Text = endDate.ToShortDateString();
+            ViewTour.BookTour.tourStartDate = startDate.ToShortDateString();
+            ViewTour.BookTour.tourEndDate = endDate.ToShortDateString();
 
         }
 
         private void btnBook_Click(object sender, EventArgs e)
         {
+            ViewTour.BookTour.pax = int.Parse(cbPax.Text);
+
             this.Hide();
             Payment passPayment = new Payment();
             passPayment.ShowDialog();
@@ -72,6 +77,14 @@ namespace breadpan
         {
             this.Close();
             ViewAll.LoginInfo.TourID = "";
+        }
+        public static class BookTour
+        {
+            public static int pax ;
+            public static string tourStartDate = "";
+            public static string tourEndDate = "";
+
+
         }
     }
 }

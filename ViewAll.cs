@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Globalization;
+
 namespace breadpan
 {
     public partial class ViewAll : Form
@@ -108,18 +109,15 @@ namespace breadpan
             if (LoginInfo.UserID == "")
             {
                 MessageBox.Show("Please Login to continue.");
-               
                 this.Hide();
                 Login openLoginForm = new Login();
                 openLoginForm.ShowDialog();
                 ViewTour openViewTourForm = new ViewTour();
                 openViewTourForm.Show();
-
             }
             else
             {
                 //Store in static class so other forms can get values
-                
                 ViewTour openViewTourForm = new ViewTour();
                 openViewTourForm.Show();
                 this.Hide();
