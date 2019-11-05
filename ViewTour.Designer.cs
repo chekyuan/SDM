@@ -49,7 +49,6 @@
             this.lblSDate = new System.Windows.Forms.Label();
             this.lblEDate = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
@@ -268,15 +267,6 @@
             this.label11.TabIndex = 28;
             this.label11.Text = "Day(s)";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(326, 637);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "label12";
-            // 
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(30, 701);
@@ -293,7 +283,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 756);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblEDate);
             this.Controls.Add(this.lblSDate);
@@ -347,7 +336,6 @@
         private System.Windows.Forms.Label lblSDate;
         private System.Windows.Forms.Label lblEDate;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnBack;
     }
 }

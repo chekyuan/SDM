@@ -25,7 +25,6 @@ namespace breadpan
 
         private void ViewTour_Load(object sender, EventArgs e)
         {
-            label12.Text = ViewAll.LoginInfo.UserID;
             //ComboBox default Value
             cbPax.SelectedIndex = 0;
             //Load Tour Details 
@@ -51,10 +50,10 @@ namespace breadpan
 
         private void calFrom_DateSelected(object sender, DateRangeEventArgs e)
         {
-            int duration = int.Parse(lblDuration.Text);
+            int duration = int.Parse(lblDuration.Text) ;
            string dateStart = calFrom.SelectionRange.Start.ToShortDateString();
             DateTime startDate = calFrom.SelectionRange.Start;
-            DateTime endDate = startDate.AddDays(duration);
+            DateTime endDate = startDate.AddDays(duration -1);
             lblSDate.Visible = true; 
             lblEDate.Visible = true;
             lblSDate.Text = startDate.ToShortDateString();

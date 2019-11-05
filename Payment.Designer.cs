@@ -49,9 +49,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtCvv = new System.Windows.Forms.TextBox();
             this.btnPayment = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblTotalCost = new System.Windows.Forms.Label();
             this.txtMonth = new System.Windows.Forms.TextBox();
@@ -266,33 +263,6 @@
             this.btnPayment.UseVisualStyleBackColor = true;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(608, 597);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 13);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "label14";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(608, 627);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 13);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "label15";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(608, 655);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 13);
-            this.label16.TabIndex = 34;
-            this.label16.Text = "label16";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -364,9 +334,6 @@
             this.Controls.Add(this.txtMonth);
             this.Controls.Add(this.lblTotalCost);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.txtCvv);
             this.Controls.Add(this.label13);
@@ -419,9 +386,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCvv;
         private System.Windows.Forms.Button btnPayment;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.TextBox txtMonth;
