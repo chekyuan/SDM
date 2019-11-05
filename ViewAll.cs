@@ -30,6 +30,17 @@ namespace breadpan
             string sqlListAllTour = "SELECT TourID,TCost,TName,TCountry,FullName FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID";
             PopulateDataList(sqlListAllTour);
             FillCountryComboBox();
+            if(LoginInfo.UserID != "")
+            {
+                btnLogin.Visible = false;
+                btnSignUp.Visible = false;
+                btnMyTrips.Visible = true;
+                lblWelcome.Visible = true;
+                lblWelcome.Text = "Welcome " + LoginInfo.FullName;
+                
+            }
+            
+            
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -86,14 +97,52 @@ namespace breadpan
         {
             string sqlListAllTour = "SELECT TourID,TCost,TName,TCountry,FullName FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID";
             PopulateDataList(sqlListAllTour);
+           
         }
 
         private void lstAllTour_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string passtourID = lstAllTour.SelectedItems[0].SubItems[0].Text;
-            ViewTour openViewTour = new ViewTour(passtourID);
-            openViewTour.ShowDialog();
+            LoginInfo.TourID = passtourID;
+            //Check if User Login
+            if (LoginInfo.UserID == "")
+            {
+                MessageBox.Show("Please Login to continue.");
+               
+                this.Hide();
+                Login openLoginForm = new Login();
+                openLoginForm.ShowDialog();
+                ViewTour openViewTourForm = new ViewTour();
+                openViewTourForm.Show();
 
+            }
+            else
+            {
+                //Store in static class so other forms can get values
+                
+                ViewTour openViewTourForm = new ViewTour();
+                openViewTourForm.Show();
+                this.Hide();
+            }
+            
+            /*ViewTour openViewTour = new ViewTour(passtourID);*/
+            //openViewTour.ShowDialog();
+
+        }
+        public static class LoginInfo
+        {
+            public static string UserID ="";
+            public static string TourID = "";
+            public static string FullName = "";
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login openLoginForm = new Login();
+            openLoginForm.ShowDialog();
+            ViewAll openViewAllForm = new ViewAll();
+            openViewAllForm.Show();
         }
     }
 }

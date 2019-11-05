@@ -17,23 +17,22 @@ namespace breadpan
         //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bruce\source\repos\SDM\breadpan.mdf;Integrated Security=True";
         //Chek's connection string  
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\choke\source\repos\breadpan\breadpan.mdf;Integrated Security=True";
-        string sessionTourID;
-        public ViewTour(string tourID)
+        public ViewTour()
         {
             InitializeComponent();
-            sessionTourID = tourID;
-            label6.Text = sessionTourID;
+            
         }
 
         private void ViewTour_Load(object sender, EventArgs e)
         {
+            label12.Text = ViewAll.LoginInfo.UserID;
             //ComboBox default Value
             cbPax.SelectedIndex = 0;
             //Load Tour Details 
             SqlConnection con = new SqlConnection(connectionString);
             string sqlRetrieveCountry = "SELECT TName, TCost,TDescription, TDuration " +
                                         "FROM TOUR " +
-                                        "WHERE TourID = '" + sessionTourID + "'";
+                                        "WHERE TourID = '" + ViewAll.LoginInfo.TourID + "'";
             SqlCommand cm = new SqlCommand(sqlRetrieveCountry, con);
             con.Open();
             SqlDataReader dr = cm.ExecuteReader();
@@ -45,6 +44,7 @@ namespace breadpan
                 lblCost.Text = dr["TCost"].ToString();
                 lblDuration.Text = dr["TDuration"].ToString() ;
             }
+            con.Close();
 
         }
 
@@ -59,6 +59,19 @@ namespace breadpan
             lblSDate.Text = startDate.ToShortDateString();
             lblEDate.Text = endDate.ToShortDateString();
 
+        }
+
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Payment passPayment = new Payment();
+            passPayment.ShowDialog();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ViewAll.LoginInfo.TourID = "";
         }
     }
 }

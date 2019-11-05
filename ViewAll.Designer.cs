@@ -43,6 +43,8 @@
             this.TourCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TourGuideName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -88,16 +90,17 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(643, 29);
+            this.btnLogin.Location = new System.Drawing.Point(712, 59);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(74, 23);
             this.btnLogin.TabIndex = 10;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(734, 29);
+            this.btnSignUp.Location = new System.Drawing.Point(818, 59);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(74, 23);
             this.btnSignUp.TabIndex = 11;
@@ -106,7 +109,7 @@
             // 
             // btnMyTrips
             // 
-            this.btnMyTrips.Location = new System.Drawing.Point(822, 29);
+            this.btnMyTrips.Location = new System.Drawing.Point(818, 12);
             this.btnMyTrips.Name = "btnMyTrips";
             this.btnMyTrips.Size = new System.Drawing.Size(75, 23);
             this.btnMyTrips.TabIndex = 12;
@@ -147,17 +150,17 @@
             // TourName
             // 
             this.TourName.Text = "Tour Name";
-            this.TourName.Width = 91;
+            this.TourName.Width = 168;
             // 
             // TourCountry
             // 
             this.TourCountry.Text = "Country";
-            this.TourCountry.Width = 74;
+            this.TourCountry.Width = 156;
             // 
             // TourCost
             // 
             this.TourCost.Text = "Tour Cost";
-            this.TourCost.Width = 72;
+            this.TourCost.Width = 84;
             // 
             // TourGuideName
             // 
@@ -174,11 +177,32 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(367, 528);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "label4";
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Location = new System.Drawing.Point(669, 17);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(105, 13);
+            this.lblWelcome.TabIndex = 19;
+            this.lblWelcome.Text = "*Welcome message*";
+            this.lblWelcome.Visible = false;
+            // 
             // ViewAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 621);
+            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lstAllTour);
             this.Controls.Add(this.cbCountry);
@@ -213,6 +237,8 @@
         private System.Windows.Forms.ColumnHeader TourCost;
         private System.Windows.Forms.ColumnHeader TourGuideName;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }
 
