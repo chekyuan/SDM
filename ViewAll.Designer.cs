@@ -116,6 +116,7 @@
             this.btnMyTrips.Text = "My Trips";
             this.btnMyTrips.UseVisualStyleBackColor = true;
             this.btnMyTrips.Visible = false;
+            this.btnMyTrips.Click += new System.EventHandler(this.btnMyTrips_Click);
             // 
             // cbCountry
             // 

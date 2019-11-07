@@ -50,10 +50,10 @@ namespace breadpan
 
         private void calFrom_DateSelected(object sender, DateRangeEventArgs e)
         {
-            int duration = int.Parse(lblDuration.Text) ;
+            int duration = int.Parse(lblDuration.Text) -1  ;
            string dateStart = calFrom.SelectionRange.Start.ToShortDateString();
             DateTime startDate = calFrom.SelectionRange.Start;
-            DateTime endDate = startDate.AddDays(duration -1);
+            DateTime endDate = startDate.AddDays(duration);
             lblSDate.Visible = true; 
             lblEDate.Visible = true;
             lblSDate.Text = startDate.ToShortDateString();

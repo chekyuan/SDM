@@ -28,9 +28,10 @@ namespace breadpan
         private void ViewAll_Load(object sender, EventArgs e)
         {
             //Populate ListView
-            string sqlListAllTour = "SELECT TourID,TCost,TName,TCountry,FullName FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID";
+            string sqlListAllTour = "SELECT TourID,TCost,TName,TCountry,FullName FROM TOUR INNER JOIN TUSERS ON TOUR.UserID = TUSERS.UserID";
             PopulateDataList(sqlListAllTour);
             FillCountryComboBox();
+            
             if(LoginInfo.UserID != "")
             {
                 btnLogin.Visible = false;
@@ -64,7 +65,6 @@ namespace breadpan
             for (int i = 0; i < dt.Rows.Count; i++)
             {
 
-            
                 DataRow dr = dt.Rows[i];
                 ListViewItem itm = new ListViewItem(dr["TourID"].ToString());
                 itm.SubItems.Add(dr["TName"].ToString());
@@ -132,6 +132,7 @@ namespace breadpan
             public static string UserID ="";
             public static string TourID = "";
             public static string FullName = "";
+            public static string UserRole = "";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -139,8 +140,29 @@ namespace breadpan
             this.Hide();
             Login openLoginForm = new Login();
             openLoginForm.ShowDialog();
-            ViewAll openViewAllForm = new ViewAll();
-            openViewAllForm.Show();
+            if (LoginInfo.UserRole == "T")
+            {
+                this.Hide();
+                TourGuide_ManageCreateTour openTourGuide = new TourGuide_ManageCreateTour();
+                openTourGuide.Show();
+            }
+            else if (LoginInfo.UserRole == "S")
+            {
+
+            }
+            else if(LoginInfo.UserRole == "C")
+            {
+                ViewAll openViewAllForm = new ViewAll();
+                openViewAllForm.Show();
+            }
+           
+
+        }
+
+        private void btnMyTrips_Click(object sender, EventArgs e)
+        {
+            MyTrips_Upcoming openMyTrips = new MyTrips_Upcoming();
+            openMyTrips.Show();
         }
     }
 }

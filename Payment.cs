@@ -25,7 +25,6 @@ namespace breadpan
         static Random random = new Random();
         private void Payment_Load(object sender, EventArgs e)
         {
-
             lblPax.Text= ViewTour.BookTour.pax.ToString();
             lblFrom.Text = ViewTour.BookTour.tourStartDate;
             lblTo.Text = ViewTour.BookTour.tourEndDate;
@@ -72,7 +71,7 @@ namespace breadpan
             {
                 MessageBox.Show("Please enter Card Name");
             }
-            else if (cardNum.Length < 16 || cardNum == null)
+            else if (cardNum.Length < 17 || cardNum == null)
             {
                 MessageBox.Show("Invalid Card Number");
             }
@@ -97,39 +96,42 @@ namespace breadpan
                     {
                         MessageBox.Show("Invalid Expiry Date");
                     }
-                    else
-                    {
-                        if (cvvLength.Length < 3 || cvvInt > 1000 || cvvInt < 0)
-                        {
-                            MessageBox.Show("Invalid CVV");
-                        }
-                        else
-                        {
-                            string transID = "T";
-                            for (int i = 0; i < 7; i++)
-                            {
-                                transID = transID + Convert.ToString(random.Next(1, 9));
-                            }
-
-                            SqlConnection con = new SqlConnection(connectionString);
-                            string sqlRetrieveCountry = "INSERT INTO TOURTRANSACTION (TransID, UserID, TourID, FromDate) VALUES (@transid, @userid, @tourid, @fromdate)";
-                            SqlCommand cm = new SqlCommand(sqlRetrieveCountry, con);
-                            con.Open();
-                            cm.Parameters.AddWithValue("@transid", transID.ToString());
-                            cm.Parameters.AddWithValue("@userid", ViewAll.LoginInfo.UserID);
-                            cm.Parameters.AddWithValue("@tourid", ViewAll.LoginInfo.TourID);
-                            cm.Parameters.AddWithValue("@fromdate", Convert.ToDateTime(ViewTour.BookTour.tourStartDate).ToString("MM/dd/yyy"));
-                            cm.ExecuteNonQuery();
-                            con.Close();
-                            MessageBox.Show("Tour Booked, Enjoy!");
-                            ViewAll openViewAll = new ViewAll();
-                            openViewAll.Show();
-                            this.Hide();
-
-                        }
-                    }
+                   
                 }
-               
+                else if (cvvLength.Length < 3 || cvvInt > 1000 || cvvInt < 0)
+                {
+                    MessageBox.Show("Invalid CVV");
+                }
+                else
+                {
+                    string transID = "T";
+                    for (int i = 0; i < 7; i++)
+                    {
+                        transID = transID + Convert.ToString(random.Next(1, 9));
+                    }
+
+                    SqlConnection con = new SqlConnection(connectionString);
+                    string sqlRetrieveCountry = "INSERT INTO TOURTRANSACTION (TransID, UserID, TourID, FromDate, Pax, ToDate, TStatus) VALUES (@transid, @userid, @tourid, @fromdate, @pax, @todate, @tstatus)";
+                    SqlCommand cm = new SqlCommand(sqlRetrieveCountry, con);
+                    con.Open();
+                    cm.Parameters.AddWithValue("@transid", transID.ToString());
+                    cm.Parameters.AddWithValue("@userid", ViewAll.LoginInfo.UserID);
+                    cm.Parameters.AddWithValue("@tourid", ViewAll.LoginInfo.TourID);
+                    cm.Parameters.AddWithValue("@fromdate", Convert.ToDateTime(ViewTour.BookTour.tourStartDate).ToString("MM/dd/yyy"));
+                    cm.Parameters.AddWithValue("@todate", Convert.ToDateTime(ViewTour.BookTour.tourEndDate).ToString("MM/dd/yyy"));
+                    cm.Parameters.AddWithValue("@pax", ViewTour.BookTour.pax);
+                    cm.Parameters.AddWithValue("@tstatus", "Pending");
+
+                    cm.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Tour Booked, Enjoy!");
+                    ViewAll openViewAll = new ViewAll();
+                    openViewAll.Show();
+                    this.Hide();
+
+
+                }
+
             }
         }
     }

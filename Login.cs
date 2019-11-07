@@ -37,8 +37,9 @@ namespace breadpan
                 string password = txtPassword.Text;
                 string fullname = "";
                 string userID = "";
+                string userRole = "";
                 SqlConnection con = new SqlConnection(connectionString);
-                string sqlRetrieveCountry = "SELECT Email, Password, UserID, FullName " +
+                string sqlRetrieveCountry = "SELECT Email, Password, UserID, FullName, UserRole " +
                                             "FROM TUSERS " +
                                             "WHERE Email = '" + username + "' AND Password = '" + password + "'";
                 SqlCommand cm = new SqlCommand(sqlRetrieveCountry, con);
@@ -51,6 +52,7 @@ namespace breadpan
                     {
                         userID = dr["UserID"].ToString();
                         fullname = dr["FullName"].ToString();
+                        userRole = dr["UserRole"].ToString();
                     }
                 }
 
@@ -58,6 +60,7 @@ namespace breadpan
                 {
                     ViewAll.LoginInfo.UserID = userID;
                     ViewAll.LoginInfo.FullName = fullname;
+                    ViewAll.LoginInfo.UserRole = userRole;
                     MessageBox.Show("Login successful");
 
                     con.Close();
