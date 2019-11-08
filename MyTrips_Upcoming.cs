@@ -33,7 +33,8 @@ namespace breadpan
         }
         public void RetrieveUpcomingTrips()
         {
-            string sqlRetrieveData = "SELECT TOURTRANSACTION.TransID, TOURTRANSACTION.TourID, TOUR.TName, TOURTRANSACTION.Pax, TOURTRANSACTION.FromDate, TOURTRANSACTION.ToDate, TOURTRANSACTION.TStatus FROM TOURTRANSACTION FULL JOIN TOUR ON TOURTRANSACTION.TourID = TOUR.TourID WHERE TOURTRANSACTION.UserID = '" + ViewAll.LoginInfo.UserID + "'";
+            string datetimeNow = DateTime.Now.ToString("yyyy/MM/dd");
+            string sqlRetrieveData = "SELECT TOURTRANSACTION.TransID, TOURTRANSACTION.TourID, TOUR.TName, TOURTRANSACTION.Pax, TOURTRANSACTION.FromDate, TOURTRANSACTION.ToDate, TOURTRANSACTION.TStatus FROM TOURTRANSACTION FULL JOIN TOUR ON TOURTRANSACTION.TourID = TOUR.TourID WHERE TOURTRANSACTION.UserID = '" + ViewAll.LoginInfo.UserID + "' AND TOURTRANSACTION.ToDate > '"+ datetimeNow + "'";
             //Retrieve Up coming trips records
             SqlConnection con = new SqlConnection(connectionString);
             SqlDataAdapter da = new SqlDataAdapter(sqlRetrieveData, con);
@@ -47,8 +48,8 @@ namespace breadpan
                 dtGridViewUpcoming.Rows[n].Cells[1].Value = item["TourID"].ToString();
                 dtGridViewUpcoming.Rows[n].Cells[2].Value = item["TName"].ToString();
                 dtGridViewUpcoming.Rows[n].Cells[3].Value = item["Pax"].ToString();
-                dtGridViewUpcoming.Rows[n].Cells[4].Value = Convert.ToDateTime(item["FromDate"]).ToString("dd/MM/yyy");
-                dtGridViewUpcoming.Rows[n].Cells[5].Value = Convert.ToDateTime(item["ToDate"]).ToString("dd/MM/yyy");
+                dtGridViewUpcoming.Rows[n].Cells[4].Value = Convert.ToDateTime(item["FromDate"]).ToString("dd/MM/yyyy");
+                dtGridViewUpcoming.Rows[n].Cells[5].Value = Convert.ToDateTime(item["ToDate"]).ToString("dd/MM/yyyy");
                 dtGridViewUpcoming.Rows[n].Cells[3].Value = item["TStatus"].ToString();
 
                 con.Close();
@@ -57,6 +58,7 @@ namespace breadpan
        
         private void RetrievePassTrips()
         {
+            string datetimeNow = DateTime.Now.ToString("yyyy/MM/dd");
             //Like btn
             DataGridViewButtonColumn btnLike = new DataGridViewButtonColumn();
             btnLike.HeaderText = "Rate Tour";
@@ -73,7 +75,7 @@ namespace breadpan
             btnDislike.UseColumnTextForButtonValue = true;
             dtGridViewPass.Columns.Add(btnDislike);
 
-            string sqlRetrieveData = "SELECT TOURTRANSACTION.TransID, TOURTRANSACTION.TourID, TOUR.TName, TOURTRANSACTION.Pax, TOURTRANSACTION.FromDate, TOURTRANSACTION.ToDate, TOURTRANSACTION.ReviewID FROM TOURTRANSACTION FULL JOIN TOUR ON TOURTRANSACTION.TourID = TOUR.TourID WHERE TOURTRANSACTION.UserID = '" + ViewAll.LoginInfo.UserID + "'";
+            string sqlRetrieveData = "SELECT TOURTRANSACTION.TransID, TOURTRANSACTION.TourID, TOUR.TName, TOURTRANSACTION.Pax, TOURTRANSACTION.FromDate, TOURTRANSACTION.ToDate, TOURTRANSACTION.ReviewID FROM TOURTRANSACTION FULL JOIN TOUR ON TOURTRANSACTION.TourID = TOUR.TourID WHERE TOURTRANSACTION.UserID = '" + ViewAll.LoginInfo.UserID + "'AND TOURTRANSACTION.ToDate < '"+ datetimeNow + "'";
             //Retrieve Up coming trips records
             SqlConnection con1 = new SqlConnection(connectionString);
             SqlDataAdapter da1 = new SqlDataAdapter(sqlRetrieveData, con1);

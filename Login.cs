@@ -78,5 +78,11 @@ namespace breadpan
                 MessageBox.Show("Please enter Username and Password.");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ForgetPassword openForgetPassword = new ForgetPassword();
+            openForgetPassword.ShowDialog();
+        }
     }
 }

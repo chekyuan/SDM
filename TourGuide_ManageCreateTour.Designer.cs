@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabManageTour = new System.Windows.Forms.TabPage();
             this.dtGridViewManageTour = new System.Windows.Forms.DataGridView();
             this.tabCreateTour = new System.Windows.Forms.TabPage();
+            this.btnCreateTour = new System.Windows.Forms.Button();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtCost = new System.Windows.Forms.TextBox();
             this.txtDuration = new System.Windows.Forms.TextBox();
             this.txtCountry = new System.Windows.Forms.TextBox();
@@ -52,10 +54,9 @@
             this.emailAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tourDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.btnCreateTour = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
@@ -116,6 +117,7 @@
             this.dtGridViewManageTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
+            this.country,
             this.cost,
             this.duration});
             this.dtGridViewManageTour.Location = new System.Drawing.Point(3, 6);
@@ -145,6 +147,24 @@
             this.tabCreateTour.TabIndex = 1;
             this.tabCreateTour.Text = "Create Tour";
             this.tabCreateTour.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateTour
+            // 
+            this.btnCreateTour.Location = new System.Drawing.Point(134, 405);
+            this.btnCreateTour.Name = "btnCreateTour";
+            this.btnCreateTour.Size = new System.Drawing.Size(259, 23);
+            this.btnCreateTour.TabIndex = 12;
+            this.btnCreateTour.Text = "CREATE TOUR";
+            this.btnCreateTour.UseVisualStyleBackColor = true;
+            this.btnCreateTour.Click += new System.EventHandler(this.btnCreateTour_Click);
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(134, 196);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(588, 191);
+            this.txtDescription.TabIndex = 11;
             // 
             // txtCost
             // 
@@ -232,14 +252,14 @@
             // dtManageTourRequest
             // 
             this.dtManageTourRequest.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtManageTourRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtManageTourRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtManageTourRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtManageTourRequest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.transID,
@@ -292,24 +312,6 @@
             this.tourDate.Name = "tourDate";
             this.tourDate.ReadOnly = true;
             // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(134, 196);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(588, 191);
-            this.txtDescription.TabIndex = 11;
-            // 
-            // btnCreateTour
-            // 
-            this.btnCreateTour.Location = new System.Drawing.Point(134, 405);
-            this.btnCreateTour.Name = "btnCreateTour";
-            this.btnCreateTour.Size = new System.Drawing.Size(259, 23);
-            this.btnCreateTour.TabIndex = 12;
-            this.btnCreateTour.Text = "CREATE TOUR";
-            this.btnCreateTour.UseVisualStyleBackColor = true;
-            this.btnCreateTour.Click += new System.EventHandler(this.btnCreateTour_Click);
-            // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "Tour ID";
@@ -322,6 +324,12 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Country";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
             // 
             // cost
             // 
@@ -388,6 +396,7 @@
         private System.Windows.Forms.Button btnCreateTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn country;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn duration;
     }

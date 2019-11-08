@@ -119,6 +119,18 @@
     <Compile Include="SysAdmin_ManageUserTour.Designer.cs">
       <DependentUpon>SysAdmin_ManageUserTour.cs</DependentUpon>
     </Compile>
+    <Compile Include="SysAdmin_EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdmin_EditUser.Designer.cs">
+      <DependentUpon>SysAdmin_EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="TOUR.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -127,6 +139,12 @@
     </Compile>
     <Compile Include="TourGuide_ManageCreateTour.Designer.cs">
       <DependentUpon>TourGuide_ManageCreateTour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuide_ModifyTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TourGuide_ModifyTour.Designer.cs">
+      <DependentUpon>TourGuide_ModifyTour.cs</DependentUpon>
     </Compile>
     <Compile Include="TRANSACTION.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -169,8 +187,17 @@
     <EmbeddedResource Include="SysAdmin_ManageUserTour.resx">
       <DependentUpon>SysAdmin_ManageUserTour.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SysAdmin_EditUser.resx">
+      <DependentUpon>SysAdmin_EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TourGuide_ManageCreateTour.resx">
       <DependentUpon>TourGuide_ManageCreateTour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourGuide_ModifyTour.resx">
+      <DependentUpon>TourGuide_ModifyTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewTour.resx">
       <DependentUpon>ViewTour.cs</DependentUpon>

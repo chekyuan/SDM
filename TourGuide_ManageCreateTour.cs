@@ -61,8 +61,8 @@ namespace breadpan
         }
         private void RetrieveTours()
         {
-            string sqlRetrieveData = "SELECT t1.TourID, t1.TName, t1.TCost, t1.TDuration, t2.LIKES ,t3.DISLIKE " +
-                "FROM (SELECT TourID, TName, TCost,TDuration FROM TOUR WHERE UserID = '" + ViewAll.LoginInfo.UserID +"') t1 " +
+            string sqlRetrieveData = "SELECT t1.TourID, t1.TCountry , t1.TName, t1.TCost, t1.TDuration, t2.LIKES ,t3.DISLIKE " +
+                "FROM (SELECT TourID, TName, TCost,TDuration, TCountry FROM TOUR WHERE UserID = '" + ViewAll.LoginInfo.UserID +"') t1 " +
                 "FULL JOIN " +
                 "(SELECT REVIEW.TourID, COUNT(Ratings) AS LIKES FROM REVIEW INNER JOIN TOUR ON REVIEW.TourID = TOUR.TourID WHERE Ratings = 1 AND TOUR.UserID = '" + ViewAll.LoginInfo.UserID + "' GROUP BY REVIEW.TourID) t2 " +
                 "ON t1.TourID = t2.TourID " +
@@ -80,33 +80,37 @@ namespace breadpan
                 int n = dtGridViewManageTour.Rows.Add();
                 dtGridViewManageTour.Rows[n].Cells[0].Value = item["TourID"].ToString();
                 dtGridViewManageTour.Rows[n].Cells[1].Value = item["TName"].ToString();
-                dtGridViewManageTour.Rows[n].Cells[2].Value = "$"+item["TCost"].ToString();
-                dtGridViewManageTour.Rows[n].Cells[3].Value = item["TDuration"].ToString();
+                dtGridViewManageTour.Rows[n].Cells[2].Value = item["TCountry"].ToString();
+                dtGridViewManageTour.Rows[n].Cells[3].Value = "$"+item["TCost"].ToString();
+                dtGridViewManageTour.Rows[n].Cells[4].Value = item["TDuration"].ToString();
             }
             con.Close();
         }
 
         private void dtGridViewManageTour_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 5)
             {
                 int columnIndex = e.ColumnIndex;
                 int rowIndex = e.RowIndex;
-                MessageBox.Show("Rowindex = " + rowIndex + ", " + "Column index = " + columnIndex);
-                
+                string tourID = dtGridViewManageTour.Rows[rowIndex].Cells[0].Value.ToString();
+                TourGuide_ModifyTour openModifyTour = new TourGuide_ModifyTour(tourID);
+                openModifyTour.ShowDialog();
+                dtGridViewManageTour.Rows.Clear();
+                RetrieveTours();
+
             }
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 6)
             {
                 int columnIndex = e.ColumnIndex;
                 int rowIndex = e.RowIndex;
                 string tourID = dtGridViewManageTour.Rows[rowIndex].Cells[0].Value.ToString();
                
                 DeleteTour(tourID);
-                MessageBox.Show(columnIndex + "  " + rowIndex);
-
-               
             }
         }
+       
+        
         private void RetrieveRquest()
         {
             string sqlRetrieveData = "SELECT TOURTRANSACTION.TransID, TOUR.TName, TUSERS.FullName, TUSERS.Email, TOURTRANSACTION.Pax, TOURTRANSACTION.FromDate " +
@@ -225,9 +229,9 @@ namespace breadpan
                 }
 
                 SqlConnection con = new SqlConnection(connectionString);
-                string sqlRetrieveCountry = "INSERT INTO TOUR (TourID, UserID, TCost, TDescription, TName, TCountry, TDuration) " +
+                string sqlInsertCountry = "INSERT INTO TOUR (TourID, UserID, TCost, TDescription, TName, TCountry, TDuration) " +
                     "VALUES (@tourid, @userid, @tcost, @tdescription, @tname, @tcountry, @tduration)";
-                SqlCommand cm = new SqlCommand(sqlRetrieveCountry, con);
+                SqlCommand cm = new SqlCommand(sqlInsertCountry, con);
                 con.Open();
                 cm.Parameters.AddWithValue("@tourid", tourID);
                 cm.Parameters.AddWithValue("@userid", ViewAll.LoginInfo.UserID);
@@ -244,6 +248,7 @@ namespace breadpan
                 RetrieveTours();
             }
         }
-        
+
+       
     }
 }

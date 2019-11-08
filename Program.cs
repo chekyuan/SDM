@@ -17,8 +17,7 @@ namespace breadpan
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ViewAll());
-            //Application.Run(new Login());
-            //Application.Run(new ViewTour());
+            //Application.Run(new Test());
         }
     }
 }

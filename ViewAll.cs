@@ -140,7 +140,7 @@ namespace breadpan
             this.Hide();
             Login openLoginForm = new Login();
             openLoginForm.ShowDialog();
-            if (LoginInfo.UserRole == "T")
+            if (LoginInfo.UserRole == "TG")
             {
                 this.Hide();
                 TourGuide_ManageCreateTour openTourGuide = new TourGuide_ManageCreateTour();
@@ -148,9 +148,11 @@ namespace breadpan
             }
             else if (LoginInfo.UserRole == "S")
             {
-
+                this.Hide();
+                SysAdmin_ManageUserTour openSystemAdmin = new SysAdmin_ManageUserTour();
+                openSystemAdmin.Show();
             }
-            else if(LoginInfo.UserRole == "C")
+            else if(LoginInfo.UserRole == "T")
             {
                 ViewAll openViewAllForm = new ViewAll();
                 openViewAllForm.Show();
