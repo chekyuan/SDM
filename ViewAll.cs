@@ -166,5 +166,11 @@ namespace breadpan
             MyTrips_Upcoming openMyTrips = new MyTrips_Upcoming();
             openMyTrips.Show();
         }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            Register openRegister = new Register();
+            openRegister.ShowDialog();
+        }
     }
 }

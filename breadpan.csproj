@@ -125,12 +125,6 @@
     <Compile Include="SysAdmin_EditUser.Designer.cs">
       <DependentUpon>SysAdmin_EditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
     <Compile Include="TOUR.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -189,9 +183,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SysAdmin_EditUser.resx">
       <DependentUpon>SysAdmin_EditUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TourGuide_ManageCreateTour.resx">
       <DependentUpon>TourGuide_ManageCreateTour.cs</DependentUpon>

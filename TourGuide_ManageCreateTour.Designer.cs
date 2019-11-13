@@ -59,6 +59,8 @@
             this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dislike = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabManageTour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewManageTour)).BeginInit();
@@ -112,6 +114,7 @@
             // 
             // dtGridViewManageTour
             // 
+            this.dtGridViewManageTour.AllowUserToAddRows = false;
             this.dtGridViewManageTour.AllowUserToDeleteRows = false;
             this.dtGridViewManageTour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridViewManageTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -119,7 +122,9 @@
             this.dataGridViewTextBoxColumn6,
             this.country,
             this.cost,
-            this.duration});
+            this.duration,
+            this.likes,
+            this.dislike});
             this.dtGridViewManageTour.Location = new System.Drawing.Point(3, 6);
             this.dtGridViewManageTour.Name = "dtGridViewManageTour";
             this.dtGridViewManageTour.ReadOnly = true;
@@ -251,6 +256,7 @@
             // 
             // dtManageTourRequest
             // 
+            this.dtManageTourRequest.AllowUserToAddRows = false;
             this.dtManageTourRequest.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -344,6 +350,18 @@
             this.duration.ReadOnly = true;
             this.duration.Width = 140;
             // 
+            // likes
+            // 
+            this.likes.HeaderText = "LIKES";
+            this.likes.Name = "likes";
+            this.likes.ReadOnly = true;
+            // 
+            // dislike
+            // 
+            this.dislike.HeaderText = "DISLIKES";
+            this.dislike.Name = "dislike";
+            this.dislike.ReadOnly = true;
+            // 
             // TourGuide_ManageCreateTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,5 +417,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn country;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn duration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn likes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dislike;
     }
 }

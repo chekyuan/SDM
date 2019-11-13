@@ -74,8 +74,6 @@ namespace breadpan
                 cm.Parameters.AddWithValue("@email", email);
                 cm.Parameters.AddWithValue("@userole", userole);
                 cm.Parameters.AddWithValue("@userid", userID);
-
-
                 cm.ExecuteNonQuery();
 
                 con.Close();

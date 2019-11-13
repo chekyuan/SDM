@@ -36,22 +36,22 @@
             this.tabManageTours = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tbManageUsers = new System.Windows.Forms.TabPage();
-            this.tbManageTour = new System.Windows.Forms.TabPage();
-            this.dtManageUser = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.dtGridViewManageTour = new System.Windows.Forms.DataGridView();
             this.tourID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbManageTour = new System.Windows.Forms.TabPage();
+            this.dtManageUser = new System.Windows.Forms.DataGridView();
             this.userid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tbManageUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewManageTour)).BeginInit();
             this.tbManageTour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtManageUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewManageTour)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -112,61 +112,9 @@
             this.tbManageUsers.Text = "Manage Tour";
             this.tbManageUsers.UseVisualStyleBackColor = true;
             // 
-            // tbManageTour
-            // 
-            this.tbManageTour.Controls.Add(this.dtManageUser);
-            this.tbManageTour.Location = new System.Drawing.Point(4, 22);
-            this.tbManageTour.Name = "tbManageTour";
-            this.tbManageTour.Size = new System.Drawing.Size(958, 443);
-            this.tbManageTour.TabIndex = 2;
-            this.tbManageTour.Text = "Manage User";
-            this.tbManageTour.UseVisualStyleBackColor = true;
-            // 
-            // dtManageUser
-            // 
-            this.dtManageUser.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtManageUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtManageUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtManageUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userid,
-            this.user,
-            this.role});
-            this.dtManageUser.Location = new System.Drawing.Point(5, 6);
-            this.dtManageUser.Name = "dtManageUser";
-            this.dtManageUser.ReadOnly = true;
-            this.dtManageUser.Size = new System.Drawing.Size(882, 365);
-            this.dtManageUser.TabIndex = 3;
-            this.dtManageUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtManageUser_CellClick);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(340, 64);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 17);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "No Carbs";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(26, 21);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(395, 39);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "BREADPAN AND TOUR";
-            // 
             // dtGridViewManageTour
             // 
+            this.dtGridViewManageTour.AllowUserToAddRows = false;
             this.dtGridViewManageTour.AllowUserToDeleteRows = false;
             this.dtGridViewManageTour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridViewManageTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -200,6 +148,40 @@
             this.tUser.ReadOnly = true;
             this.tUser.Width = 150;
             // 
+            // tbManageTour
+            // 
+            this.tbManageTour.Controls.Add(this.dtManageUser);
+            this.tbManageTour.Location = new System.Drawing.Point(4, 22);
+            this.tbManageTour.Name = "tbManageTour";
+            this.tbManageTour.Size = new System.Drawing.Size(958, 443);
+            this.tbManageTour.TabIndex = 2;
+            this.tbManageTour.Text = "Manage User";
+            this.tbManageTour.UseVisualStyleBackColor = true;
+            // 
+            // dtManageUser
+            // 
+            this.dtManageUser.AllowUserToAddRows = false;
+            this.dtManageUser.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtManageUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtManageUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtManageUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userid,
+            this.user,
+            this.role});
+            this.dtManageUser.Location = new System.Drawing.Point(5, 6);
+            this.dtManageUser.Name = "dtManageUser";
+            this.dtManageUser.ReadOnly = true;
+            this.dtManageUser.Size = new System.Drawing.Size(882, 365);
+            this.dtManageUser.TabIndex = 3;
+            this.dtManageUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtManageUser_CellClick);
+            // 
             // userid
             // 
             this.userid.HeaderText = "User ID";
@@ -220,6 +202,26 @@
             this.role.ReadOnly = true;
             this.role.Width = 120;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(340, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 17);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "No Carbs";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(26, 21);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(395, 39);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "BREADPAN AND TOUR";
+            // 
             // SysAdmin_ManageUserTour
             // 
             this.ClientSize = new System.Drawing.Size(1089, 605);
@@ -230,9 +232,9 @@
             this.Load += new System.EventHandler(this.SysAdmin_ManageUserTour_Load);
             this.tabControl2.ResumeLayout(false);
             this.tbManageUsers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewManageTour)).EndInit();
             this.tbManageTour.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtManageUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewManageTour)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

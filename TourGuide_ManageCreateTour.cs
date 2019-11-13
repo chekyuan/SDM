@@ -83,13 +83,15 @@ namespace breadpan
                 dtGridViewManageTour.Rows[n].Cells[2].Value = item["TCountry"].ToString();
                 dtGridViewManageTour.Rows[n].Cells[3].Value = "$"+item["TCost"].ToString();
                 dtGridViewManageTour.Rows[n].Cells[4].Value = item["TDuration"].ToString();
+                dtGridViewManageTour.Rows[n].Cells[5].Value = item["LIKES"].ToString();
+                dtGridViewManageTour.Rows[n].Cells[6].Value = item["DISLIKE"].ToString();
             }
             con.Close();
         }
 
         private void dtGridViewManageTour_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 7)
             {
                 int columnIndex = e.ColumnIndex;
                 int rowIndex = e.RowIndex;
@@ -100,7 +102,7 @@ namespace breadpan
                 RetrieveTours();
 
             }
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 8)
             {
                 int columnIndex = e.ColumnIndex;
                 int rowIndex = e.RowIndex;
