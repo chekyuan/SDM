@@ -52,7 +52,6 @@ namespace breadpan
             string address = txtAddress.Text;
             string email = txtEmail.Text;
             string userole = txtUserRole.Text;
-            MessageBox.Show(userole);
             if (name == "" || password == "" || address == "" || email == "" || userole == "")
             {
                 MessageBox.Show("Please fill in the relevant fields");

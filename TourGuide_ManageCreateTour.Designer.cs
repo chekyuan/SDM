@@ -34,6 +34,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabManageTour = new System.Windows.Forms.TabPage();
             this.dtGridViewManageTour = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dislike = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCreateTour = new System.Windows.Forms.TabPage();
             this.btnCreateTour = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -54,13 +61,8 @@
             this.emailAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tourDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.likes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dislike = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnChat = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabManageTour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewManageTour)).BeginInit();
@@ -97,7 +99,7 @@
             this.tabControl1.Location = new System.Drawing.Point(32, 104);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(966, 469);
+            this.tabControl1.Size = new System.Drawing.Size(999, 401);
             this.tabControl1.TabIndex = 9;
             // 
             // tabManageTour
@@ -107,7 +109,7 @@
             this.tabManageTour.Location = new System.Drawing.Point(4, 22);
             this.tabManageTour.Name = "tabManageTour";
             this.tabManageTour.Padding = new System.Windows.Forms.Padding(3);
-            this.tabManageTour.Size = new System.Drawing.Size(958, 443);
+            this.tabManageTour.Size = new System.Drawing.Size(991, 375);
             this.tabManageTour.TabIndex = 0;
             this.tabManageTour.Text = "Manage Tours";
             this.tabManageTour.UseVisualStyleBackColor = true;
@@ -128,9 +130,54 @@
             this.dtGridViewManageTour.Location = new System.Drawing.Point(3, 6);
             this.dtGridViewManageTour.Name = "dtGridViewManageTour";
             this.dtGridViewManageTour.ReadOnly = true;
-            this.dtGridViewManageTour.Size = new System.Drawing.Size(949, 365);
+            this.dtGridViewManageTour.RowHeadersVisible = false;
+            this.dtGridViewManageTour.Size = new System.Drawing.Size(982, 365);
             this.dtGridViewManageTour.TabIndex = 2;
             this.dtGridViewManageTour.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewManageTour_CellClick);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Tour ID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Tour Name";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // country
+            // 
+            this.country.HeaderText = "Country";
+            this.country.Name = "country";
+            this.country.ReadOnly = true;
+            // 
+            // cost
+            // 
+            this.cost.HeaderText = "Cost/PAX";
+            this.cost.Name = "cost";
+            this.cost.ReadOnly = true;
+            // 
+            // duration
+            // 
+            this.duration.HeaderText = "Duration (Days)";
+            this.duration.Name = "duration";
+            this.duration.ReadOnly = true;
+            this.duration.Width = 140;
+            // 
+            // likes
+            // 
+            this.likes.HeaderText = "LIKES";
+            this.likes.Name = "likes";
+            this.likes.ReadOnly = true;
+            // 
+            // dislike
+            // 
+            this.dislike.HeaderText = "DISLIKES";
+            this.dislike.Name = "dislike";
+            this.dislike.ReadOnly = true;
             // 
             // tabCreateTour
             // 
@@ -148,14 +195,14 @@
             this.tabCreateTour.Location = new System.Drawing.Point(4, 22);
             this.tabCreateTour.Name = "tabCreateTour";
             this.tabCreateTour.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCreateTour.Size = new System.Drawing.Size(958, 443);
+            this.tabCreateTour.Size = new System.Drawing.Size(991, 375);
             this.tabCreateTour.TabIndex = 1;
             this.tabCreateTour.Text = "Create Tour";
             this.tabCreateTour.UseVisualStyleBackColor = true;
             // 
             // btnCreateTour
             // 
-            this.btnCreateTour.Location = new System.Drawing.Point(134, 405);
+            this.btnCreateTour.Location = new System.Drawing.Point(134, 332);
             this.btnCreateTour.Name = "btnCreateTour";
             this.btnCreateTour.Size = new System.Drawing.Size(259, 23);
             this.btnCreateTour.TabIndex = 12;
@@ -168,7 +215,7 @@
             this.txtDescription.Location = new System.Drawing.Point(134, 196);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(588, 191);
+            this.txtDescription.Size = new System.Drawing.Size(588, 113);
             this.txtDescription.TabIndex = 11;
             // 
             // txtCost
@@ -249,7 +296,7 @@
             this.tabManageRequest.Controls.Add(this.dtManageTourRequest);
             this.tabManageRequest.Location = new System.Drawing.Point(4, 22);
             this.tabManageRequest.Name = "tabManageRequest";
-            this.tabManageRequest.Size = new System.Drawing.Size(958, 443);
+            this.tabManageRequest.Size = new System.Drawing.Size(991, 375);
             this.tabManageRequest.TabIndex = 2;
             this.tabManageRequest.Text = "Manage Tour Request";
             this.tabManageRequest.UseVisualStyleBackColor = true;
@@ -277,7 +324,8 @@
             this.dtManageTourRequest.Location = new System.Drawing.Point(5, 6);
             this.dtManageTourRequest.Name = "dtManageTourRequest";
             this.dtManageTourRequest.ReadOnly = true;
-            this.dtManageTourRequest.Size = new System.Drawing.Size(882, 365);
+            this.dtManageTourRequest.RowHeadersVisible = false;
+            this.dtManageTourRequest.Size = new System.Drawing.Size(983, 365);
             this.dtManageTourRequest.TabIndex = 3;
             this.dtManageTourRequest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtManageTourRequest_CellContentClick);
             // 
@@ -318,55 +366,33 @@
             this.tourDate.Name = "tourDate";
             this.tourDate.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // btnChat
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Tour ID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.btnChat.Location = new System.Drawing.Point(756, 34);
+            this.btnChat.Name = "btnChat";
+            this.btnChat.Size = new System.Drawing.Size(135, 29);
+            this.btnChat.TabIndex = 10;
+            this.btnChat.Text = "Chats";
+            this.btnChat.UseVisualStyleBackColor = true;
+            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
             // 
-            // dataGridViewTextBoxColumn6
+            // btnLogout
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Tour Name";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
-            // country
-            // 
-            this.country.HeaderText = "Country";
-            this.country.Name = "country";
-            this.country.ReadOnly = true;
-            // 
-            // cost
-            // 
-            this.cost.HeaderText = "Cost/PAX";
-            this.cost.Name = "cost";
-            this.cost.ReadOnly = true;
-            // 
-            // duration
-            // 
-            this.duration.HeaderText = "Duration (Days)";
-            this.duration.Name = "duration";
-            this.duration.ReadOnly = true;
-            this.duration.Width = 140;
-            // 
-            // likes
-            // 
-            this.likes.HeaderText = "LIKES";
-            this.likes.Name = "likes";
-            this.likes.ReadOnly = true;
-            // 
-            // dislike
-            // 
-            this.dislike.HeaderText = "DISLIKES";
-            this.dislike.Name = "dislike";
-            this.dislike.ReadOnly = true;
+            this.btnLogout.Location = new System.Drawing.Point(921, 34);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(106, 29);
+            this.btnLogout.TabIndex = 11;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // TourGuide_ManageCreateTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 588);
+            this.ClientSize = new System.Drawing.Size(1076, 537);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnChat);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -419,5 +445,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn duration;
         private System.Windows.Forms.DataGridViewTextBoxColumn likes;
         private System.Windows.Forms.DataGridViewTextBoxColumn dislike;
+        private System.Windows.Forms.Button btnChat;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

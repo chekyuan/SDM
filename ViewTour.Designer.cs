@@ -33,12 +33,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblTour = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.picBox = new System.Windows.Forms.PictureBox();
             this.cbPax = new System.Windows.Forms.ComboBox();
             this.calFrom = new System.Windows.Forms.MonthCalendar();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBook = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblCost = new System.Windows.Forms.Label();
@@ -50,7 +48,8 @@
             this.lblEDate = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
+            this.btnChat = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -103,14 +102,6 @@
             this.txtDescription.Size = new System.Drawing.Size(511, 368);
             this.txtDescription.TabIndex = 8;
             // 
-            // picBox
-            // 
-            this.picBox.Location = new System.Drawing.Point(613, 175);
-            this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(472, 241);
-            this.picBox.TabIndex = 9;
-            this.picBox.TabStop = false;
-            // 
             // cbPax
             // 
             this.cbPax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,14 +118,14 @@
             "8",
             "9",
             "10"});
-            this.cbPax.Location = new System.Drawing.Point(613, 448);
+            this.cbPax.Location = new System.Drawing.Point(627, 190);
             this.cbPax.Name = "cbPax";
-            this.cbPax.Size = new System.Drawing.Size(214, 24);
+            this.cbPax.Size = new System.Drawing.Size(220, 24);
             this.cbPax.TabIndex = 10;
             // 
             // calFrom
             // 
-            this.calFrom.Location = new System.Drawing.Point(613, 521);
+            this.calFrom.Location = new System.Drawing.Point(627, 279);
             this.calFrom.Name = "calFrom";
             this.calFrom.TabIndex = 11;
             this.calFrom.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calFrom_DateSelected);
@@ -143,7 +134,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(610, 495);
+            this.label5.Location = new System.Drawing.Point(624, 253);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 17);
             this.label5.TabIndex = 13;
@@ -151,22 +142,13 @@
             // 
             // btnBook
             // 
-            this.btnBook.Location = new System.Drawing.Point(1004, 701);
+            this.btnBook.Location = new System.Drawing.Point(627, 666);
             this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(81, 32);
+            this.btnBook.Size = new System.Drawing.Size(225, 35);
             this.btnBook.TabIndex = 15;
             this.btnBook.Text = "Book";
             this.btnBook.UseVisualStyleBackColor = true;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(587, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "label6";
             // 
             // label7
             // 
@@ -219,7 +201,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(854, 585);
+            this.label4.Location = new System.Drawing.Point(624, 546);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 25);
             this.label4.TabIndex = 25;
@@ -229,7 +211,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(852, 531);
+            this.label10.Location = new System.Drawing.Point(623, 492);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 25);
             this.label10.TabIndex = 24;
@@ -239,7 +221,7 @@
             // 
             this.lblSDate.AutoSize = true;
             this.lblSDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSDate.Location = new System.Drawing.Point(962, 531);
+            this.lblSDate.Location = new System.Drawing.Point(732, 492);
             this.lblSDate.Name = "lblSDate";
             this.lblSDate.Size = new System.Drawing.Size(115, 25);
             this.lblSDate.TabIndex = 26;
@@ -250,7 +232,7 @@
             // 
             this.lblEDate.AutoSize = true;
             this.lblEDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEDate.Location = new System.Drawing.Point(962, 585);
+            this.lblEDate.Location = new System.Drawing.Point(732, 546);
             this.lblEDate.Name = "lblEDate";
             this.lblEDate.Size = new System.Drawing.Size(109, 25);
             this.lblEDate.TabIndex = 27;
@@ -269,19 +251,40 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(30, 701);
+            this.btnBack.Location = new System.Drawing.Point(32, 666);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(80, 32);
+            this.btnBack.Size = new System.Drawing.Size(112, 37);
             this.btnBack.TabIndex = 30;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnChat
+            // 
+            this.btnChat.Location = new System.Drawing.Point(622, 26);
+            this.btnChat.Name = "btnChat";
+            this.btnChat.Size = new System.Drawing.Size(225, 39);
+            this.btnChat.TabIndex = 31;
+            this.btnChat.Text = "Chat with Tour Gudie! CLICK HERE";
+            this.btnChat.UseVisualStyleBackColor = true;
+            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(626, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Select PAX";
+            // 
             // ViewTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 756);
+            this.ClientSize = new System.Drawing.Size(890, 718);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnChat);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblEDate);
@@ -293,12 +296,10 @@
             this.Controls.Add(this.lblCost);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnBook);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.calFrom);
             this.Controls.Add(this.cbPax);
-            this.Controls.Add(this.picBox);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblTour);
             this.Controls.Add(this.label3);
@@ -307,7 +308,6 @@
             this.Name = "ViewTour";
             this.Text = "ViewTour";
             this.Load += new System.EventHandler(this.ViewTour_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,12 +320,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTour;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.ComboBox cbPax;
         private System.Windows.Forms.MonthCalendar calFrom;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnBook;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblCost;
@@ -337,5 +335,7 @@
         private System.Windows.Forms.Label lblEDate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnChat;
+        private System.Windows.Forms.Label label6;
     }
 }

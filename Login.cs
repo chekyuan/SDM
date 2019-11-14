@@ -84,5 +84,12 @@ namespace breadpan
             ForgetPassword openForgetPassword = new ForgetPassword();
             openForgetPassword.ShowDialog();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ViewAll openViewAll = new ViewAll();
+            openViewAll.Show();
+        }
     }
 }

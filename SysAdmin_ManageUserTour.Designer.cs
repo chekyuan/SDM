@@ -47,6 +47,7 @@
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tbManageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewManageTour)).BeginInit();
@@ -97,7 +98,7 @@
             this.tabControl2.Location = new System.Drawing.Point(33, 116);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(966, 469);
+            this.tabControl2.Size = new System.Drawing.Size(571, 399);
             this.tabControl2.TabIndex = 10;
             // 
             // tbManageUsers
@@ -107,7 +108,7 @@
             this.tbManageUsers.Location = new System.Drawing.Point(4, 22);
             this.tbManageUsers.Name = "tbManageUsers";
             this.tbManageUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.tbManageUsers.Size = new System.Drawing.Size(958, 443);
+            this.tbManageUsers.Size = new System.Drawing.Size(563, 373);
             this.tbManageUsers.TabIndex = 0;
             this.tbManageUsers.Text = "Manage Tour";
             this.tbManageUsers.UseVisualStyleBackColor = true;
@@ -121,10 +122,11 @@
             this.tourID,
             this.tName,
             this.tUser});
-            this.dtGridViewManageTour.Location = new System.Drawing.Point(3, 6);
+            this.dtGridViewManageTour.Location = new System.Drawing.Point(3, 4);
             this.dtGridViewManageTour.Name = "dtGridViewManageTour";
             this.dtGridViewManageTour.ReadOnly = true;
-            this.dtGridViewManageTour.Size = new System.Drawing.Size(949, 365);
+            this.dtGridViewManageTour.RowHeadersVisible = false;
+            this.dtGridViewManageTour.Size = new System.Drawing.Size(588, 365);
             this.dtGridViewManageTour.TabIndex = 2;
             this.dtGridViewManageTour.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewManageTour_CellClick);
             // 
@@ -153,7 +155,7 @@
             this.tbManageTour.Controls.Add(this.dtManageUser);
             this.tbManageTour.Location = new System.Drawing.Point(4, 22);
             this.tbManageTour.Name = "tbManageTour";
-            this.tbManageTour.Size = new System.Drawing.Size(958, 443);
+            this.tbManageTour.Size = new System.Drawing.Size(563, 373);
             this.tbManageTour.TabIndex = 2;
             this.tbManageTour.Text = "Manage User";
             this.tbManageTour.UseVisualStyleBackColor = true;
@@ -178,7 +180,8 @@
             this.dtManageUser.Location = new System.Drawing.Point(5, 6);
             this.dtManageUser.Name = "dtManageUser";
             this.dtManageUser.ReadOnly = true;
-            this.dtManageUser.Size = new System.Drawing.Size(882, 365);
+            this.dtManageUser.RowHeadersVisible = false;
+            this.dtManageUser.Size = new System.Drawing.Size(557, 365);
             this.dtManageUser.TabIndex = 3;
             this.dtManageUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtManageUser_CellClick);
             // 
@@ -222,9 +225,20 @@
             this.label9.TabIndex = 11;
             this.label9.Text = "BREADPAN AND TOUR";
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(482, 21);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(118, 30);
+            this.btnLogout.TabIndex = 13;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // SysAdmin_ManageUserTour
             // 
-            this.ClientSize = new System.Drawing.Size(1089, 605);
+            this.ClientSize = new System.Drawing.Size(651, 545);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tabControl2);
@@ -260,5 +274,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn userid;
         private System.Windows.Forms.DataGridViewTextBoxColumn user;
         private System.Windows.Forms.DataGridViewTextBoxColumn role;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

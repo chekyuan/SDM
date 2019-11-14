@@ -55,6 +55,7 @@
             this.txtYear = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -94,7 +95,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(511, 511);
+            this.txtDescription.Size = new System.Drawing.Size(511, 412);
             this.txtDescription.TabIndex = 13;
             // 
             // lblTourName
@@ -111,7 +112,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 720);
+            this.label1.Location = new System.Drawing.Point(37, 615);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(211, 17);
             this.label1.TabIndex = 14;
@@ -121,7 +122,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 756);
+            this.label2.Location = new System.Drawing.Point(37, 651);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 17);
             this.label2.TabIndex = 15;
@@ -131,7 +132,7 @@
             // 
             this.lblPax.AutoSize = true;
             this.lblPax.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPax.Location = new System.Drawing.Point(79, 756);
+            this.lblPax.Location = new System.Drawing.Point(82, 651);
             this.lblPax.Name = "lblPax";
             this.lblPax.Size = new System.Drawing.Size(92, 17);
             this.lblPax.TabIndex = 16;
@@ -141,7 +142,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(34, 796);
+            this.label6.Location = new System.Drawing.Point(37, 691);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 17);
             this.label6.TabIndex = 17;
@@ -151,7 +152,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(278, 796);
+            this.label7.Location = new System.Drawing.Point(281, 691);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 17);
             this.label7.TabIndex = 18;
@@ -161,7 +162,7 @@
             // 
             this.lblFrom.AutoSize = true;
             this.lblFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrom.Location = new System.Drawing.Point(87, 796);
+            this.lblFrom.Location = new System.Drawing.Point(90, 691);
             this.lblFrom.Name = "lblFrom";
             this.lblFrom.Size = new System.Drawing.Size(84, 17);
             this.lblFrom.TabIndex = 19;
@@ -171,7 +172,7 @@
             // 
             this.lblTo.AutoSize = true;
             this.lblTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.Location = new System.Drawing.Point(317, 796);
+            this.lblTo.Location = new System.Drawing.Point(320, 691);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(69, 17);
             this.lblTo.TabIndex = 20;
@@ -255,7 +256,7 @@
             // 
             // btnPayment
             // 
-            this.btnPayment.Location = new System.Drawing.Point(838, 777);
+            this.btnPayment.Location = new System.Drawing.Point(838, 741);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(117, 36);
             this.btnPayment.TabIndex = 31;
@@ -323,11 +324,22 @@
             this.label18.TabIndex = 40;
             this.label18.Text = "Year";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(40, 741);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(117, 36);
+            this.btnBack.TabIndex = 41;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 837);
+            this.ClientSize = new System.Drawing.Size(987, 797);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtYear);
@@ -392,5 +404,6 @@
         private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnBack;
     }
 }

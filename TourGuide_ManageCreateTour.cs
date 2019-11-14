@@ -61,6 +61,8 @@ namespace breadpan
         }
         private void RetrieveTours()
         {
+            string likes = "";
+            string dislike = "";
             string sqlRetrieveData = "SELECT t1.TourID, t1.TCountry , t1.TName, t1.TCost, t1.TDuration, t2.LIKES ,t3.DISLIKE " +
                 "FROM (SELECT TourID, TName, TCost,TDuration, TCountry FROM TOUR WHERE UserID = '" + ViewAll.LoginInfo.UserID +"') t1 " +
                 "FULL JOIN " +
@@ -85,6 +87,9 @@ namespace breadpan
                 dtGridViewManageTour.Rows[n].Cells[4].Value = item["TDuration"].ToString();
                 dtGridViewManageTour.Rows[n].Cells[5].Value = item["LIKES"].ToString();
                 dtGridViewManageTour.Rows[n].Cells[6].Value = item["DISLIKE"].ToString();
+               
+
+
             }
             con.Close();
         }
@@ -107,8 +112,15 @@ namespace breadpan
                 int columnIndex = e.ColumnIndex;
                 int rowIndex = e.RowIndex;
                 string tourID = dtGridViewManageTour.Rows[rowIndex].Cells[0].Value.ToString();
-               
-                DeleteTour(tourID);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this Tour.", "Alert!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                   DeleteTour(tourID);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                }
+                
             }
         }
        
@@ -251,6 +263,23 @@ namespace breadpan
             }
         }
 
-       
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ShowAllChat showAllchat = new ShowAllChat();
+            showAllchat.ShowDialog();
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            ViewAll.LoginInfo.UserID = "";
+            ViewAll.LoginInfo.TourID = "";
+            ViewAll.LoginInfo.UserRole = "";
+            ViewAll.LoginInfo.FullName = "";
+            this.Close();
+            ViewAll openViewAll = new ViewAll();
+            openViewAll.Show();
+        }
     }
 }

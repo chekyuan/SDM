@@ -146,9 +146,9 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(151, 396);
+            this.btnUpdate.Location = new System.Drawing.Point(151, 374);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(138, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(138, 45);
             this.btnUpdate.TabIndex = 22;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -156,18 +156,18 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(319, 396);
+            this.btnCancel.Location = new System.Drawing.Point(359, 388);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 31);
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // SysAdmin_RemoveUser
+            // SysAdmin_EditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 450);
+            this.ClientSize = new System.Drawing.Size(466, 443);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtEmail);
@@ -182,7 +182,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
-            this.Name = "SysAdmin_RemoveUser";
+            this.Name = "SysAdmin_EditUser";
             this.Text = "SysAdmin_RemoveUser";
             this.Load += new System.EventHandler(this.SysAdmin_RemoveUser_Load);
             this.ResumeLayout(false);

@@ -43,8 +43,10 @@
             this.TourCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TourGuideName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.btnChat = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -80,9 +82,9 @@
             // btnSearch
             // 
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(818, 565);
+            this.btnSearch.Location = new System.Drawing.Point(731, 175);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(81, 32);
+            this.btnSearch.Size = new System.Drawing.Size(119, 32);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -90,7 +92,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(712, 59);
+            this.btnLogin.Location = new System.Drawing.Point(742, 59);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(74, 23);
             this.btnLogin.TabIndex = 10;
@@ -100,7 +102,7 @@
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(818, 59);
+            this.btnSignUp.Location = new System.Drawing.Point(829, 59);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(74, 23);
             this.btnSignUp.TabIndex = 11;
@@ -110,7 +112,7 @@
             // 
             // btnMyTrips
             // 
-            this.btnMyTrips.Location = new System.Drawing.Point(818, 12);
+            this.btnMyTrips.Location = new System.Drawing.Point(653, 12);
             this.btnMyTrips.Name = "btnMyTrips";
             this.btnMyTrips.Size = new System.Drawing.Size(75, 23);
             this.btnMyTrips.TabIndex = 12;
@@ -122,7 +124,7 @@
             // cbCountry
             // 
             this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.Location = new System.Drawing.Point(672, 119);
+            this.cbCountry.Location = new System.Drawing.Point(678, 134);
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(225, 21);
             this.cbCountry.TabIndex = 14;
@@ -179,32 +181,56 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(367, 528);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "label4";
-            // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(669, 17);
+            this.lblWelcome.Location = new System.Drawing.Point(542, 17);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(105, 13);
             this.lblWelcome.TabIndex = 19;
             this.lblWelcome.Text = "*Welcome message*";
             this.lblWelcome.Visible = false;
             // 
+            // btnChat
+            // 
+            this.btnChat.Location = new System.Drawing.Point(742, 12);
+            this.btnChat.Name = "btnChat";
+            this.btnChat.Size = new System.Drawing.Size(74, 23);
+            this.btnChat.TabIndex = 20;
+            this.btnChat.Text = "Chats";
+            this.btnChat.UseVisualStyleBackColor = true;
+            this.btnChat.Visible = false;
+            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(829, 12);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 21;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Visible = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(676, 113);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Select country :";
+            // 
             // ViewAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 621);
-            this.Controls.Add(this.lblWelcome);
+            this.ClientSize = new System.Drawing.Size(932, 560);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnChat);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lstAllTour);
             this.Controls.Add(this.cbCountry);
@@ -239,8 +265,10 @@
         private System.Windows.Forms.ColumnHeader TourCost;
         private System.Windows.Forms.ColumnHeader TourGuideName;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Button btnChat;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label label4;
     }
 }
 

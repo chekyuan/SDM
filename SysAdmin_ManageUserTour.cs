@@ -166,5 +166,16 @@ namespace breadpan
 
             }
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            ViewAll.LoginInfo.UserID = "";
+            ViewAll.LoginInfo.TourID = "";
+            ViewAll.LoginInfo.UserRole = "";
+            ViewAll.LoginInfo.FullName = "";
+            this.Close();
+            ViewAll openViewAll = new ViewAll();
+            openViewAll.Show();
+        }
     }
 }

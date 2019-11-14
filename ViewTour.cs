@@ -44,7 +44,8 @@ namespace breadpan
                 lblDuration.Text = dr["TDuration"].ToString() ;
             }
             con.Close();
-
+            RetrieveChatID();
+            RetrieveChatID();
 
         }
 
@@ -76,6 +77,8 @@ namespace breadpan
         {
             this.Close();
             ViewAll.LoginInfo.TourID = "";
+            ViewAll openViewAll = new ViewAll();
+            openViewAll.Show();
         }
         public static class BookTour
         {
@@ -84,6 +87,36 @@ namespace breadpan
             public static string tourEndDate = "";
 
 
+        }
+        private void RetrieveChatID()
+        {
+            string chatBefore = "";
+            string sqlRetrieveData = "SELECT DISTINCT ChatID FROM CHAT WHERE UserID = '" + ViewAll.LoginInfo.UserID + "' AND TourID = '" + ViewAll.LoginInfo.TourID + "'";
+    
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlDataAdapter da = new SqlDataAdapter(sqlRetrieveData, con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            con.Open();
+            foreach (DataRow item in dt.Rows)
+            {
+
+                chatBefore = item["ChatID"].ToString();
+
+            }
+            con.Close();
+            if(chatBefore != "")
+            {
+                btnChat.Enabled = false;
+                btnChat.Text = "You have chatted before with Tour Guide";
+            }
+        }
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            string chatID = "";
+            TourChat opentourGuideChat = new TourChat(ViewAll.LoginInfo.TourID, ViewAll.LoginInfo.UserID, chatID);
+            opentourGuideChat.ShowDialog();
         }
     }
 }

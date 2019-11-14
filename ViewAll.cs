@@ -38,6 +38,8 @@ namespace breadpan
                 btnSignUp.Visible = false;
                 btnMyTrips.Visible = true;
                 lblWelcome.Visible = true;
+                btnChat.Visible = true;
+                btnLogout.Visible = true;
                 lblWelcome.Text = "Welcome " + LoginInfo.FullName;
                 
             }
@@ -64,7 +66,6 @@ namespace breadpan
             da.Fill(dt);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-
                 DataRow dr = dt.Rows[i];
                 ListViewItem itm = new ListViewItem(dr["TourID"].ToString());
                 itm.SubItems.Add(dr["TName"].ToString());
@@ -96,7 +97,7 @@ namespace breadpan
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            string sqlListAllTour = "SELECT TourID,TCost,TName,TCountry,FullName FROM TOUR FULL JOIN TUSERS ON TOUR.UserID = TUSERS.UserID";
+            string sqlListAllTour = "SELECT TourID,TCost,TName,TCountry,FullName FROM TOUR INNER JOIN TUSERS ON TOUR.UserID = TUSERS.UserID";
             PopulateDataList(sqlListAllTour);
            
         }
@@ -112,8 +113,17 @@ namespace breadpan
                 this.Hide();
                 Login openLoginForm = new Login();
                 openLoginForm.ShowDialog();
-                ViewTour openViewTourForm = new ViewTour();
-                openViewTourForm.Show();
+                if(LoginInfo.UserID == "")
+                {
+                    
+                }
+                else
+                {
+                    this.Hide();
+                    ViewTour openViewTourForm = new ViewTour();
+                 openViewTourForm.Show();
+                }
+               
             }
             else
             {
@@ -163,6 +173,7 @@ namespace breadpan
 
         private void btnMyTrips_Click(object sender, EventArgs e)
         {
+            this.Hide();
             MyTrips_Upcoming openMyTrips = new MyTrips_Upcoming();
             openMyTrips.Show();
         }
@@ -171,6 +182,24 @@ namespace breadpan
         {
             Register openRegister = new Register();
             openRegister.ShowDialog();
+        }
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ShowAllChat openShowAllChat = new ShowAllChat();
+            openShowAllChat.ShowDialog();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            ViewAll.LoginInfo.UserID = "";
+            ViewAll.LoginInfo.TourID = "";
+            ViewAll.LoginInfo.UserRole = "";
+            ViewAll.LoginInfo.FullName = "";
+            this.Close();
+            ViewAll openViewAll = new ViewAll();
+            openViewAll.Show();
         }
     }
 }

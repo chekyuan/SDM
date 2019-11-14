@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabUpcoming = new System.Windows.Forms.TabPage();
             this.dtGridViewUpcoming = new System.Windows.Forms.DataGridView();
@@ -39,6 +39,7 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPast = new System.Windows.Forms.TabPage();
             this.dtGridViewPass = new System.Windows.Forms.DataGridView();
             this.tansactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +51,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabUpcoming.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewUpcoming)).BeginInit();
@@ -64,7 +66,7 @@
             this.tabControl1.Location = new System.Drawing.Point(31, 111);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(966, 464);
+            this.tabControl1.Size = new System.Drawing.Size(863, 400);
             this.tabControl1.TabIndex = 0;
             // 
             // tabUpcoming
@@ -74,7 +76,7 @@
             this.tabUpcoming.Location = new System.Drawing.Point(4, 22);
             this.tabUpcoming.Name = "tabUpcoming";
             this.tabUpcoming.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpcoming.Size = new System.Drawing.Size(958, 438);
+            this.tabUpcoming.Size = new System.Drawing.Size(855, 374);
             this.tabUpcoming.TabIndex = 0;
             this.tabUpcoming.Text = "UPCOMING TRIPS";
             this.tabUpcoming.UseVisualStyleBackColor = true;
@@ -90,11 +92,13 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-            this.dtGridViewUpcoming.Location = new System.Drawing.Point(3, 6);
+            this.dataGridViewTextBoxColumn9,
+            this.status});
+            this.dtGridViewUpcoming.Location = new System.Drawing.Point(1, 4);
             this.dtGridViewUpcoming.Name = "dtGridViewUpcoming";
             this.dtGridViewUpcoming.ReadOnly = true;
-            this.dtGridViewUpcoming.Size = new System.Drawing.Size(717, 365);
+            this.dtGridViewUpcoming.RowHeadersVisible = false;
+            this.dtGridViewUpcoming.Size = new System.Drawing.Size(848, 365);
             this.dtGridViewUpcoming.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -135,13 +139,19 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            // 
             // tabPast
             // 
             this.tabPast.Controls.Add(this.dtGridViewPass);
             this.tabPast.Location = new System.Drawing.Point(4, 22);
             this.tabPast.Name = "tabPast";
             this.tabPast.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPast.Size = new System.Drawing.Size(958, 438);
+            this.tabPast.Size = new System.Drawing.Size(855, 374);
             this.tabPast.TabIndex = 1;
             this.tabPast.Text = "PAST TRIPS";
             this.tabPast.UseVisualStyleBackColor = true;
@@ -150,14 +160,14 @@
             // 
             this.dtGridViewPass.AllowUserToAddRows = false;
             this.dtGridViewPass.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewPass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewPass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtGridViewPass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridViewPass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tansactionID,
@@ -169,15 +179,16 @@
             this.dtGridViewPass.Location = new System.Drawing.Point(2, 6);
             this.dtGridViewPass.Name = "dtGridViewPass";
             this.dtGridViewPass.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewPass.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtGridViewPass.Size = new System.Drawing.Size(953, 365);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewPass.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtGridViewPass.RowHeadersVisible = false;
+            this.dtGridViewPass.Size = new System.Drawing.Size(847, 365);
             this.dtGridViewPass.TabIndex = 1;
             this.dtGridViewPass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewPass_CellClick);
             // 
@@ -249,11 +260,22 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "BREADPAN AND TOUR";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(32, 517);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(119, 36);
+            this.btnBack.TabIndex = 7;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // MyTrips_Upcoming
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 604);
+            this.ClientSize = new System.Drawing.Size(931, 576);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -281,17 +303,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtGridViewPass;
         private System.Windows.Forms.DataGridView dtGridViewUpcoming;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn tansactionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn tour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tourName1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.Button btnBack;
     }
 }

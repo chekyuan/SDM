@@ -50,7 +50,7 @@ namespace breadpan
                 dtGridViewUpcoming.Rows[n].Cells[3].Value = item["Pax"].ToString();
                 dtGridViewUpcoming.Rows[n].Cells[4].Value = Convert.ToDateTime(item["FromDate"]).ToString("dd/MM/yyyy");
                 dtGridViewUpcoming.Rows[n].Cells[5].Value = Convert.ToDateTime(item["ToDate"]).ToString("dd/MM/yyyy");
-                dtGridViewUpcoming.Rows[n].Cells[3].Value = item["TStatus"].ToString();
+                dtGridViewUpcoming.Rows[n].Cells[6].Value = item["TStatus"].ToString();
 
                 con.Close();
             }
@@ -109,12 +109,10 @@ namespace breadpan
             {
                 int columnIndex = e.ColumnIndex;
                 int rowIndex = e.RowIndex;
-                MessageBox.Show("Rowindex = " + rowIndex + ", " + "Column index = " + columnIndex);
                 string tourID = dtGridViewPass.Rows[rowIndex].Cells[1].Value.ToString();
                 string transID = dtGridViewPass.Rows[rowIndex].Cells[0].Value.ToString();
                 InsertReview(1,tourID,transID);
                 MessageBox.Show("Tour Reviewed. Thank You");
-                MessageBox.Show(columnIndex + "  " + rowIndex);
                 dtGridViewPass.Rows[rowIndex].Cells[columnIndex] = new DataGridViewTextBoxCell { Value = "Reviewed" };
                 dtGridViewPass.Rows[rowIndex].Cells[columnIndex + 1] = new DataGridViewTextBoxCell { Value = "" };
                 dtGridViewPass.Rows[rowIndex].Cells[columnIndex].ReadOnly = true;
@@ -129,7 +127,6 @@ namespace breadpan
                 string transID = dtGridViewPass.Rows[rowIndex].Cells[0].Value.ToString();
                 InsertReview(0, tourID, transID);
                 MessageBox.Show("Tour Reviewed. Thank You");
-                MessageBox.Show(columnIndex + "  " + rowIndex);
 
                 dtGridViewPass.Rows[rowIndex].Cells[columnIndex -1] = new DataGridViewTextBoxCell { Value = "Reviewed" };
                 dtGridViewPass.Rows[rowIndex].Cells[columnIndex] = new DataGridViewTextBoxCell { Value = "" };
@@ -166,6 +163,11 @@ namespace breadpan
             con1.Close();
         }
 
-       
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ViewAll openViewAll = new ViewAll();
+            openViewAll.Show();
+        }
     }
 }

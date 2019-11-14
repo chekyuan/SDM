@@ -129,10 +129,16 @@ namespace breadpan
                     openViewAll.Show();
                     this.Hide();
 
-
                 }
 
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ViewTour openViewTour = new ViewTour();
+            openViewTour.Show();
         }
     }
 }

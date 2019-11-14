@@ -42,6 +42,7 @@
             this.rbTG = new System.Windows.Forms.RadioButton();
             this.rbT = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -116,7 +117,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(189, 516);
+            this.btnRegister.Location = new System.Drawing.Point(177, 520);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(104, 34);
             this.btnRegister.TabIndex = 9;
@@ -173,11 +174,22 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "User Role :";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(28, 520);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(79, 34);
+            this.btnBack.TabIndex = 15;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 576);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.rbT);
             this.Controls.Add(this.rbTG);
@@ -216,5 +228,6 @@
         private System.Windows.Forms.RadioButton rbTG;
         private System.Windows.Forms.RadioButton rbT;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnBack;
     }
 }

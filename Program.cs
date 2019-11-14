@@ -19,6 +19,8 @@ namespace breadpan
             Application.Run(new ViewAll());
             //Application.Run(new Test());
             //Application.Run(new Register());
+            //Application.Run(new ShowAllChat());
+
         }
     }
 }
