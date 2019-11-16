@@ -281,7 +281,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Name = "MyTrips_Upcoming";
-            this.Text = "MyTrips_Upcoming";
+            this.Text = "Upcoming/Past Trips";
             this.Load += new System.EventHandler(this.MyTrips_Upcoming_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabUpcoming.ResumeLayout(false);

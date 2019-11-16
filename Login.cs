@@ -15,19 +15,15 @@ namespace breadpan
     {
 
         //Bruce's connection string
-        //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bruce\source\repos\SDM\breadpan.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bruce\source\repos\SDM\breadpan.mdf;Integrated Security=True";
         //Chek's connection string  
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\choke\source\repos\breadpan\breadpan.mdf;Integrated Security=True";
+        //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\choke\source\repos\breadpan\breadpan.mdf;Integrated Security=True";
 
         public Login()
         {
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -79,17 +75,18 @@ namespace breadpan
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ForgetPassword openForgetPassword = new ForgetPassword();
-            openForgetPassword.ShowDialog();
-        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
             ViewAll openViewAll = new ViewAll();
             openViewAll.Show();
+        }
+
+        private void btnForgetPassword_Click(object sender, EventArgs e)
+        {
+            ForgetPassword openForgetPassword = new ForgetPassword();
+            openForgetPassword.ShowDialog();
         }
     }
 }

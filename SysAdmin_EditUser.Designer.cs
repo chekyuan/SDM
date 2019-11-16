@@ -183,7 +183,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
             this.Name = "SysAdmin_EditUser";
-            this.Text = "SysAdmin_RemoveUser";
+            this.Text = "RemoveUser";
             this.Load += new System.EventHandler(this.SysAdmin_RemoveUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

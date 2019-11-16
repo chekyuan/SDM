@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtChat = new System.Windows.Forms.DataGridView();
             this.reply = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chat = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,8 +55,8 @@
             this.dtChat.Name = "dtChat";
             this.dtChat.ReadOnly = true;
             this.dtChat.RowHeadersVisible = false;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtChat.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtChat.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtChat.Size = new System.Drawing.Size(536, 286);
             this.dtChat.TabIndex = 0;
             // 
@@ -68,8 +68,8 @@
             // 
             // Chat
             // 
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Chat.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Chat.DefaultCellStyle = dataGridViewCellStyle1;
             this.Chat.HeaderText = "Chat";
             this.Chat.Name = "Chat";
             this.Chat.ReadOnly = true;
@@ -148,7 +148,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtChat);
             this.Name = "TourChat";
-            this.Text = "TourGuideChat";
+            this.Text = "Chat";
             this.Load += new System.EventHandler(this.TourGuideChat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtChat)).EndInit();
             this.ResumeLayout(false);

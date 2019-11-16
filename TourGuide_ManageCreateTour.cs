@@ -15,9 +15,9 @@ namespace breadpan
     public partial class TourGuide_ManageCreateTour : Form
     {
         //Bruce's connection string
-        //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bruce\source\repos\SDM\breadpan.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bruce\source\repos\SDM\breadpan.mdf;Integrated Security=True";
         //Chek's connection string  
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\choke\source\repos\breadpan\breadpan.mdf;Integrated Security=True";
+        //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\choke\source\repos\breadpan\breadpan.mdf;Integrated Security=True";
 
         public TourGuide_ManageCreateTour()
         {
@@ -61,8 +61,6 @@ namespace breadpan
         }
         private void RetrieveTours()
         {
-            string likes = "";
-            string dislike = "";
             string sqlRetrieveData = "SELECT t1.TourID, t1.TCountry , t1.TName, t1.TCost, t1.TDuration, t2.LIKES ,t3.DISLIKE " +
                 "FROM (SELECT TourID, TName, TCost,TDuration, TCountry FROM TOUR WHERE UserID = '" + ViewAll.LoginInfo.UserID +"') t1 " +
                 "FULL JOIN " +

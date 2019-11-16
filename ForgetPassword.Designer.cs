@@ -70,7 +70,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label1);
             this.Name = "ForgetPassword";
-            this.Text = "ForgetPassword";
+            this.Text = "Forget Password";
             this.ResumeLayout(false);
             this.PerformLayout();
 

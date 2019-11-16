@@ -130,7 +130,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtGridViewAllChat);
             this.Name = "ShowAllChat";
-            this.Text = "ShowAllChat";
+            this.Text = "ShowAll Chat";
             this.Load += new System.EventHandler(this.ShowAllChat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAllChat)).EndInit();
             this.ResumeLayout(false);

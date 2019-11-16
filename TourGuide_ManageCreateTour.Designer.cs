@@ -397,7 +397,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TourGuide_ManageCreateTour";
-            this.Text = "TourGuide_ManageCreateTour";
+            this.Text = "Manage/Create Tour";
             this.Load += new System.EventHandler(this.TourGuide_ManageCreateTour_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabManageTour.ResumeLayout(false);

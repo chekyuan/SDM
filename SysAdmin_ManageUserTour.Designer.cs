@@ -243,6 +243,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tabControl2);
             this.Name = "SysAdmin_ManageUserTour";
+            this.Text = "Manage User/Tour";
             this.Load += new System.EventHandler(this.SysAdmin_ManageUserTour_Load);
             this.tabControl2.ResumeLayout(false);
             this.tbManageUsers.ResumeLayout(false);

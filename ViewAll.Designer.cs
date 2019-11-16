@@ -242,7 +242,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ViewAll";
-            this.Text = "Form1";
+            this.Text = "ViewAll";
             this.Load += new System.EventHandler(this.ViewAll_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
