@@ -14,7 +14,7 @@ namespace breadpan
 {
     public partial class Register : Form
     {
-
+        //HI THERE
         //Bruce's connection string
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bruce\source\repos\SDM\breadpan.mdf;Integrated Security=True";
         //Chek's connection string  
